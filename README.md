@@ -1,5 +1,7 @@
 # Canon-Driven Development
 
+> As code gets cheaper, the real problem stops being writing code; it becomes keeping the system the same thing across thousands of small changes.
+
 CDD, ajanlarla geliştirilen bir ürünün kimliğini küçük değişiklikler boyunca korumaya yönelik bir yönetişim önerisidir. Lead uygular, Koruyucu canon'a göre değerlendirir, Müfettiş süreci raporlar; normu insan Master koyar. Aynı Koruyucu gerekçeli diyaloğu sürdürür; çözülemeyen itirazda Lead ısrar ederse Master'a gidilir.
 
 **Güncel sürüm: v0.3 — Türkçe.** Yöntemin faydası henüz doğrulanmış bir sonuç olarak sunulmaz.
