@@ -1,0 +1,4 @@
+interface:
+  display_name: "CDD Koruyucu"
+  short_description: "Canon incelemesi ve gerekçeli diyaloğu yürüt"
+  default_prompt: "$cdd-guardian ile bu değişikliği kabul edilmiş canon kaynaklarına göre değerlendir."

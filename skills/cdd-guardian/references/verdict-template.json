@@ -1,0 +1,32 @@
+{
+  "record_kind": "template",
+  "protocol_version": "0.3",
+  "inputs": {
+    "code_sha": null,
+    "base_sha": null,
+    "corpus_hash": null,
+    "task_ref": null,
+    "evaluator": null
+  },
+  "scope": {
+    "selection": [],
+    "unresolved": [
+      "Kabul edilmiş kaynak ve inceleme kapsamı henüz kurulmadı"
+    ]
+  },
+  "clauses": [],
+  "findings": [],
+  "routing": [
+    {
+      "kind": "CONTEXT",
+      "reason": "Bu bir başlangıç şablonudur",
+      "owner": "human"
+    }
+  ],
+  "canon_gate": "HOLD",
+  "dialogue": {
+    "initial_gate": null,
+    "final_gate": "HOLD",
+    "change_reason": null
+  }
+}
