@@ -1,0 +1,45 @@
+{
+  "record_kind": "example",
+  "protocol_version": "0.3",
+  "inputs": {
+    "code_sha": "illustrative-head",
+    "base_sha": "illustrative-base",
+    "corpus_hash": "illustrative-corpus",
+    "task_ref": "synthetic-task",
+    "evaluator": "illustrative-not-a-model-run"
+  },
+  "scope": {
+    "selection": [
+      {
+        "path": "example",
+        "rule": "load-full-example-canon",
+        "source": "CANON.md"
+      }
+    ],
+    "unresolved": []
+  },
+  "clauses": [
+    {
+      "clause": "C-04",
+      "scope": "legacy fallback",
+      "status": "VIOLATED",
+      "required": true
+    }
+  ],
+  "findings": [
+    {
+      "severity": "BLOCK",
+      "clause": "C-04",
+      "scope": "legacy fallback",
+      "cite": "C-04: authority yalnız server-derived",
+      "counterexample": "Sunucu rolü yok + istemciden role=admin → istemci rolü kullanılır"
+    }
+  ],
+  "routing": [],
+  "canon_gate": "NO-GO",
+  "dialogue": {
+    "initial_gate": null,
+    "final_gate": "NO-GO",
+    "change_reason": null
+  }
+}

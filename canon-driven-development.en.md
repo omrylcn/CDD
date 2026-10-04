@@ -1,3 +1,5 @@
+> **Historical v0.1.** The current Turkish v0.3 specification is [here](canon-driven-development.md). This English text has not yet been updated and is not equivalent to v0.3.
+
 # Canon-Driven Development
 
 ### A human–agent governance proposal for preserving identity in agentic software development
@@ -692,3 +694,4 @@ The expected outcome: if an LLM Guardian's precision on soft identity principles
 - GitHub Spec Kit — constitution artifact. https://github.com/github/spec-kit
 - Marri, S. R. "Constitutional Spec-Driven Development: Enforcing Security by Construction in AI-Assisted Code Generation". arXiv:2602.02584, January 2026.
 - Alenezi, M. "Specification-Driven Development as the Foundation of AI-Native Enterprise Software Engineering". arXiv:2607.16680, July 2026 — Specification Governance Reference Model.
+

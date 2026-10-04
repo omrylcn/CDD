@@ -1,0 +1,43 @@
+{
+  "record_kind": "example",
+  "protocol_version": "0.3",
+  "inputs": {
+    "code_sha": "illustrative-head",
+    "base_sha": "illustrative-base",
+    "corpus_hash": "illustrative-corpus",
+    "task_ref": "synthetic-task",
+    "evaluator": "illustrative-not-a-model-run"
+  },
+  "scope": {
+    "selection": [
+      {
+        "path": "example",
+        "rule": "load-full-example-canon",
+        "source": "CANON.md"
+      }
+    ],
+    "unresolved": []
+  },
+  "clauses": [
+    {
+      "clause": "C-04",
+      "scope": "legacy fallback",
+      "status": "NOT_ASSESSED",
+      "required": true
+    }
+  ],
+  "findings": [],
+  "routing": [
+    {
+      "kind": "INSTABILITY",
+      "reason": "Sabit girdilerde açıklanamayan çelişkili hükümler",
+      "owner": "Master"
+    }
+  ],
+  "canon_gate": "HOLD",
+  "dialogue": {
+    "initial_gate": null,
+    "final_gate": "HOLD",
+    "change_reason": null
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "record_kind": "example",
+  "protocol_version": "0.3",
+  "inputs": {
+    "code_sha": "illustrative-head",
+    "base_sha": "illustrative-base",
+    "corpus_hash": "illustrative-corpus",
+    "task_ref": "synthetic-task",
+    "evaluator": "illustrative-not-a-model-run"
+  },
+  "scope": {
+    "selection": [
+      {
+        "path": "example",
+        "rule": "load-full-example-canon",
+        "source": "CANON.md"
+      }
+    ],
+    "unresolved": []
+  },
+  "clauses": [
+    {
+      "clause": "C-09",
+      "scope": "bilgilendirme kartları",
+      "status": "PRESERVED",
+      "required": true
+    },
+    {
+      "clause": "C-12",
+      "scope": "yönetim eylemi",
+      "status": "PRESERVED",
+      "required": true
+    }
+  ],
+  "findings": [
+    {
+      "severity": "ADVISORY",
+      "clause": "C-09",
+      "scope": "bilgilendirme kartları",
+      "observation": "Birikimli bildirim ağırlığı izlenmeli; yönetim eylemi yok",
+      "owner": "Lead / örnek",
+      "review_date": "2026-10-12"
+    }
+  ],
+  "routing": [],
+  "canon_gate": "GO",
+  "dialogue": {
+    "initial_gate": null,
+    "final_gate": "GO",
+    "change_reason": null
+  }
+}
