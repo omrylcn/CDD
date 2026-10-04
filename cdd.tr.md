@@ -43,7 +43,7 @@ flowchart TD
 
 **Faz 0'ın somut başlangıcı:** `CANON.md`, `GUARDIAN.md`, `RULINGS.md` ve gate'i başlatan bir komut veya çalışma talimatı. Önce ürünün sahibi kısa canon'u kabul eder; sonra Lead uygulamayı üretir, ayrı değerlendirme rolündeki Koruyucu ilk görüşünü kaydeder. Bir itiraz varsa aynı Koruyucu'yla gerekçeli diyalog açılır. Kod, normatif kaynak veya değerlendirme kapsamı değişirse ilgili inceleme yenilenir.
 
-Başlangıç şablonları ve ilk örnek çalışma [kurulum rehberindedir](docs/getting-started.tr.md). Şablon üretmek onay vermek değildir; örnek ürünün ilkeleri başka bir ürün için kendiliğinden geçerli olmaz.
+Başlangıç şablonları ve ilk örnek çalışma [kurulum rehberindedir](docs/getting-started.md). Şablon üretmek onay vermek değildir; örnek ürünün ilkeleri başka bir ürün için kendiliğinden geçerli olmaz.
 
 **Kısa sözlük:** *ruling*, vakaya ilişkin yorum kararı; *isnad*, türetme zinciri; *nesih*, yürürlükten kaldırma; *apokrif*, normatif olmayan belge; *corpus*, değerlendirmede kullanılan kaynak bütünü; *amendment*, norm değişikliği; *Ledger*, takip ve sapma kaydıdır. `Master` bu metinde insan rolüdür; örnek üründeki `role=master` ise ürünün kendi yetki değeridir.
 
@@ -475,7 +475,6 @@ Eksik olan ajan değil de **ayrıntı** ise yol zaten tanımlı: DERIVED → Kur
 | Alt kitap — DERIVED | Lead | Koruyucu türetmeyi değerlendirir | **Kurul** | Alt kitap + isnad |
 | Alt kitap — NEW NORM | Lead | Kurul | **Master** | Alt kitap + isnad |
 | Canon amendment | Lead (ayrı oturum) | Kurul uzlaşır | **Master** | `CANON.md` (supersedes) |
-
 | Açık PR'a bağlı amendment | Lead veya Master; ilişki ve genel etki kaydı | PR kararı ile norm kabulü ayrı | **Master**, içerik sürümüne bağlı | Amendment kaydı + yeni sürümde tekrar gate |
 | Veto override — yorum hatası | Koruyucu veto eder | — | **Master** (gerekçeli) | Karar kaydı; norm yorumu varsa `RULINGS.md` |
 | Veto — gerçek ihlal | Koruyucu veto eder | — | override yok; amendment veya acil istisna | `CANON.md` / `LEDGER.md` |
@@ -905,7 +904,6 @@ Master kuyruğundaki açık iş sayısı ve en eski açık işin yaşı iş sın
 | Lead'in canon'a karşı öz-denetimi | Builder'ın kendi değerlendirmesi için baseline |
 | Aynı Koruyucu'nun diyalog öncesi görüşü | Ayrı değerlendirme rolünün ilk hükmü |
 | Aynı Koruyucu'nun diyalog sonrası görüşü | Açıklamayla düzeltme ve yanlış uzlaşı etkisi |
-
 | Eşleştirilmiş ortak kaçırmalar | Lead'in kaçırdığı etiketli ihlallerin Koruyucu tarafından da kaçırılan payı; öncesi/sonrası ayrı |
 
 Diyalog öncesi/sonrası görüş aynı vakada eşleştirilir. Yanlış itirazın geçerli bilgiyle düzelmesi ile doğru itirazın dayanaksız savunmayla geri çekilmesi ayrı sayılır. Ek inceleme bütçesi eşitlenmiş Lead öz-denetimi de karşılaştırmaya alınır; maliyet ve context farkları açıkça raporlanır. Başka bir izole reviewer isteğe bağlı karşılaştırma koludur; önerinin zorunlu mimarisi değildir. Önceki CONSULT geçmişi hangi koşulda varsa kaydedilir; ilk görüş tam kör inceleme diye sunulmaz.

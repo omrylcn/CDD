@@ -1,27 +1,27 @@
-# İnceleme protokolü
+# Review protocol
 
-## Kaynaklar
+## Sources
 
-Kabul edilmiş kaynak sürümü dışarıdan doğrulanmalıdır. `git show <base>:CANON.md` bir sürümün içeriğini gösterir; insanın o sürümü kabul ettiğini kanıtlamaz. PR head'deki norm veya denetim değişiklikleri tekliftir. Yetkili kabul ayrı olaydır; eski verdict yeni kaynağa taşınmaz.
+Verify accepted source revisions externally. `git show <base>:CANON.md` displays a revision's contents; it does not prove human acceptance. Normative or evaluation changes at PR head are proposals. Authorized acceptance is a separate event; an old verdict does not carry over to a new source.
 
-Kaynak seçimini dosya/domain → kural → kitap/ruling biçiminde kaydedin. Faz 0'da tüm küçük corpus yüklenebilir. Gerekli kapsam hâlâ belirlenemiyorsa GO vermeyin. Kaynak haritası doğru görünse bile çapraz etkiyi inceleyin. Kaynak manifest'inin tam olması semantik kapsamın tam olduğunu kanıtlamaz.
+Record source selection as file/domain → rule → book/ruling. In Phase 0, load the entire small corpus if appropriate. Do not issue GO while required scope remains unresolved. Inspect cross-domain effects even when the source map looks correct. A complete source manifest does not establish complete semantic coverage.
 
-## Gate sonucu ve açık işler
+## Gate result and open work
 
-| Alan | Anlamı |
+| Field | Meaning |
 |---|---|
-| GO | Zorunlu kapsam tamam; geçerli ihlal veya açık zorunlu iş yok |
-| NO-GO | En az bir geçerli BLOCK var; diğer açık işler kayıtta kalır |
-| HOLD | Geçerli BLOCK yok; zorunlu kapsam veya karar tamamlanmadı |
-| NEEDS-RULING | Uygulanabilir norm var, vaka yorumu belirsiz; cite ile Kurul'a |
-| NEEDS-NORM | Kaynak tam; ürün kimliğine ilişkin uygulanabilir norm yok; Master'a |
-| CONTEXT | Gerekli kaynak veya kapsam kurulamadı; tamamla, çözülemezse insana |
-| INSTABILITY | Sabit girdilerde açıklanamayan çelişki; doğrudan Master'a |
+| GO | Required scope complete; no valid violation or open mandatory work |
+| NO-GO | At least one valid BLOCK; other open work remains recorded |
+| HOLD | No valid BLOCK; required scope or decision incomplete |
+| NEEDS-RULING | Applicable norm exists; case interpretation unclear; cite and route to Council |
+| NEEDS-NORM | Sources complete; no applicable product-identity norm; route to Master |
+| CONTEXT | Required sources or scope unavailable; complete them, escalate if unresolved |
+| INSTABILITY | Unexplained contradiction at fixed inputs; directly to Master |
 
-BLOCK cite ve yeniden üretilebilir karşı örnek gerektirir. Kararsız BLOCK adayı geçerli BLOCK sayılmaz. Başka doğrulanmış BLOCK varsa NO-GO sürer. AMBIGUOUS ve zorunlu NOT_ASSESSED sessizce geçmez. Serbest implementasyon tercihi NEEDS-NORM değildir.
+BLOCK requires a citation and reproducible counterexample. An unstable BLOCK candidate is not a valid BLOCK. Another verified BLOCK preserves NO-GO. AMBIGUOUS and required NOT_ASSESSED cannot silently pass. A free implementation choice is not NEEDS-NORM.
 
-## Diyalog
+## Dialogue
 
-İlk hüküm, Lead'in itirazı, tartışılan kanıt/yorum, düzeltilen hata ve son hükmü bağlayın. İlk görüşün önceki CONSULT geçmişinden bağımsız olduğu iddiasında bulunmayın. Kanıtsız baskıyı norm saymayın; yeni kanıt olmadan tekrar gate çağırarak GO aramayın. Aynı bilginin yanlış okunması yeni bilgi gelmeden de düzeltilebilir.
+Link the initial judgment, Lead objection, evidence/interpretation discussed, error corrected, and final judgment. Do not claim the first view is independent of previous CONSULT history. Unsupported pressure is not a norm; do not repeatedly call the gate without new evidence to seek GO. A misreading of existing information may be corrected without new information.
 
-Yetki ayrımı hata bağımsızlığı değildir. Bu paket model korelasyonunu veya Master'ın yanlış kararını ortadan kaldırmaz. Otomatik enforcement için ayrıca sürüme bağlı güvenilir karar üretimi, yetkili onay, branch koruması ve platform izinleri gerekir.
+Authority separation is not error independence. This package does not eliminate model correlation or incorrect Master decisions. Automated enforcement additionally requires trustworthy revision-bound decision production, authorized acceptance, branch protection, and platform permissions.

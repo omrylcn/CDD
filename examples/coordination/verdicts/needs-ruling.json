@@ -21,7 +21,7 @@
   "clauses": [
     {
       "clause": "C-09",
-      "scope": "Operator yönlendirme bağlantısı",
+      "scope": "link to Operator",
       "status": "AMBIGUOUS",
       "required": true
     }
@@ -30,9 +30,9 @@
   "routing": [
     {
       "kind": "NEEDS-RULING",
-      "reason": "Yönlendirme bağlantısının yüzey ayrımına uygulanması belirsiz",
-      "owner": "Kurul",
-      "cite": "C-09: yüzeyler ayrı kalır"
+      "reason": "Application of surface separation to the navigation link is unclear",
+      "owner": "Council",
+      "cite": "C-09: Everyday, On-Demand, and Operator are distinct interaction surfaces; they cannot be combined into one generic dashboard."
     }
   ],
   "canon_gate": "HOLD",

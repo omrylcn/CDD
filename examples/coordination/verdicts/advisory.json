@@ -21,13 +21,13 @@
   "clauses": [
     {
       "clause": "C-09",
-      "scope": "bilgilendirme kartları",
+      "scope": "information cards",
       "status": "PRESERVED",
       "required": true
     },
     {
       "clause": "C-12",
-      "scope": "yönetim eylemi",
+      "scope": "administrative action",
       "status": "PRESERVED",
       "required": true
     }
@@ -36,9 +36,9 @@
     {
       "severity": "ADVISORY",
       "clause": "C-09",
-      "scope": "bilgilendirme kartları",
-      "observation": "Birikimli bildirim ağırlığı izlenmeli; yönetim eylemi yok",
-      "owner": "Lead / örnek",
+      "scope": "information cards",
+      "observation": "Monitor cumulative notification weight; no administrative action",
+      "owner": "Lead / example",
       "review_date": "2026-10-12"
     }
   ],

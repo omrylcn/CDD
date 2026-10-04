@@ -1,29 +1,29 @@
-# Ürün Canon'u
+# Product Canon
 
-Durum: **DRAFT — insan kabulü bekliyor**
+Status: **DRAFT — awaiting human acceptance**
 
-Bu taslak bağlayıcı değildir. Ürün sahibinin doğrulanabilir kabulü ve kabul edilen norm sürümü kaydedilmeden ACTIVE olarak kullanılmaz.
+This draft is not binding. Do not use it as ACTIVE until verifiable product-owner acceptance and the accepted norm revision have been recorded.
 
-## Kimlik çekirdeği
+## Identity core
 
-- Ürün: <hangi iş, kimin için>
-- Ürünün olmayacağı şey: <sınır>
-- C-01 — <tek cümlede ürün ilkesi>
-- C-02 — <korunacak davranış veya trade-off>
+- Product: <what it does, for whom>
+- What the product will not become: <boundary>
+- C-01 — <one-sentence product principle>
+- C-02 — <behavior or trade-off to preserve>
 
-## Yetki — kabul edilecek taslak
+## Authority — draft for acceptance
 
-Master insan ürün sahibidir; yeni norm ve canon değişikliğini kabul eder. Lead uygular. Koruyucu ayrı değerlendirme rolüdür; yalnız canon itirazı üretir. Lead ve Koruyucu mevcut normun rutin yorumunu Kurul'da yapabilir; yeni norm yaratamaz. Çözülemeyen itiraz ve yeni norm Master'a gider. Master yorum kararını geri çekebilir.
+The Master is the human product owner and accepts new norms and canon changes. The Lead implements. The Guardian is a separate evaluation role that raises canon objections. The Lead and Guardian may interpret existing norms routinely as the Council; they cannot create new norms. Unresolved objections and new norms go to the Master. The Master may revoke interpretations.
 
-## Kaynak haritası
+## Source map
 
-Faz 0: kabul edildikten sonra bu Canon'un tamamı ve `RULINGS.md` içindeki ACTIVE yorumlar yüklenir; henüz alt kitap yoktur. `GUARDIAN.md` kabul edilmiş denetim talimatıdır. Kod, ADR, görev ve açıklamalar bağlamdır; norm değildir. Kaynağın tamamı küçük olduğu sürece domain router gerekmez.
+Phase 0: once accepted, load this entire Canon and ACTIVE interpretations in `RULINGS.md`; there are no domain books yet. `GUARDIAN.md` is the accepted evaluation instruction. Code, ADRs, tasks, and explanations provide context, not norms. No domain router is needed while the full corpus remains small.
 
-## Kabul kaydı
+## Acceptance record
 
-- Yetkili insan: <belirlenecek>
-- Onaylanan norm metninin sürümü veya hash'i: <belirlenecek>
-- Kimliğe bağlı insan kararı referansı: <belirlenecek>
-- Yürürlüğe giriş: <belirlenecek>
+- Authorized human: <to be established>
+- Accepted norm-text revision or hash: <to be established>
+- Identity-bound human decision reference: <to be established>
+- Effective from: <to be established>
 
-Bu alanların doldurulması tek başına kimlik doğrulama değildir. Kabul kaydı ile korumalı kaynak sürümünün ilişkisi dışarıdan doğrulanabilir olmalıdır.
+Filling in these fields alone does not authenticate approval. The relationship between the acceptance record and protected source revision must be externally verifiable.

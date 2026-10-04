@@ -11,7 +11,7 @@
   "scope": {
     "selection": [],
     "unresolved": [
-      "Kabul edilmiş kaynak ve inceleme kapsamı henüz kurulmadı"
+      "Accepted sources and review scope have not yet been established"
     ]
   },
   "clauses": [],
@@ -19,7 +19,7 @@
   "routing": [
     {
       "kind": "CONTEXT",
-      "reason": "Bu bir başlangıç şablonudur",
+      "reason": "This is a starter template",
       "owner": "human"
     }
   ],

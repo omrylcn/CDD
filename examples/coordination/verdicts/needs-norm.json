@@ -23,7 +23,7 @@
   "routing": [
     {
       "kind": "NEEDS-NORM",
-      "reason": "Tam örnek corpus saklama süresi konusunda norm koymuyor; ürün kararı gerekli",
+      "reason": "The complete example corpus specifies no retention period; a product decision is required",
       "owner": "Master"
     }
   ],

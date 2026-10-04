@@ -1,53 +1,53 @@
-# İlk gate'i birlikte okumak
+# Reading the first gate together
 
-Bu bir öğretim çalışmasıdır. Aşağıdaki verdict'ler bir modelin çalıştırılmış sonuçları değil, beklenen davranışı anlatan **sentetik örneklerdir**. Örneğin normları [CANON.md](CANON.md) içindedir; gerçek bir ürün için kabul edilmiş sayılmaz.
+This is a teaching exercise. The verdicts below are **synthetic examples** of expected behavior, not recorded model runs. Their assumed norms are in [CANON.md](CANON.md); they are not accepted norms for a real product.
 
-## Kurulum provası
+## Rehearse setup
 
-CDD depo kökünden geçici bir dizine başlangıç dosyalarını üret:
+From the CDD repository root, generate starter files in a temporary directory:
 
 ```bash
 python3 skills/cdd-init/scripts/init_cdd.py --target /tmp/cdd-demo --dry-run
 python3 skills/cdd-init/scripts/init_cdd.py --target /tmp/cdd-demo
 ```
 
-Bu dizindeki DRAFT Canon'un ürün kimliğini doldur. Gerçek çalışmada insan kabulü olmadan gate kaynağı sayma. Öğretim provasında aşağıdaki vakaları, bu klasördeki illustrative normları varsayarak oku. Sonuçlarını beklenen kayıtlarla karşılaştır.
+Fill in the DRAFT Canon's product identity. In real use, it cannot become a gate source without human acceptance. For this exercise, read the cases assuming the illustrative norms in this folder. Compare your conclusions with the expected records.
 
-## Vakalar
+## Cases
 
-| Vaka | Değişiklik / bilgi | Beklenen yol | Kayıt |
+| Case | Change / information | Expected route | Record |
 |---|---|---|---|
-| Açık ihlal | Legacy fallback, sunucu rolü yokken istemcinin `role` alanını kullanıyor | C-04 cite + somut karşı örnek; NO-GO | [block.json](verdicts/block.json) |
-| Yumuşak drift | Everyday'e üç salt bilgilendirme kartı ekleniyor; yönetim eylemi yok | ADVISORY ve takip; başka açık iş yoksa GO | [advisory.json](verdicts/advisory.json) |
-| Norm boşluğu | Eski etkinlik kayıtlarını kaç gün saklayacağımız ürün kararı olarak soruluyor; örnek corpus bu konuda sessiz | NEEDS-NORM; HOLD | [needs-norm.json](verdicts/needs-norm.json) |
-| Eksik kaynak | Etkilenen yeni entegrasyon için gerekli kapsam belirlenemiyor | CONTEXT; başka BLOCK yoksa HOLD | [context.json](verdicts/context.json) |
-| Yorum belirsizliği | Everyday'de rol değiştirmeyen, yalnız Operator'a götüren bağlantının sınırı tartışmalı | C-09 ile NEEDS-RULING; HOLD | [needs-ruling.json](verdicts/needs-ruling.json) |
-| Model kararsızlığı | Aynı kaynak, görev ve kodla açıklanamayan çelişkili hükümler var | INSTABILITY; Master; HOLD | [instability.json](verdicts/instability.json) |
+| Explicit violation | Legacy fallback uses the client's `role` when the server role is absent | C-04 citation + concrete counterexample; NO-GO | [block.json](verdicts/block.json) |
+| Soft drift | Three information-only cards added to Everyday; no administrative action | ADVISORY and follow-up; GO if no other open work | [advisory.json](verdicts/advisory.json) |
+| Norm gap | Product decision asks how many days to retain old activity records; example corpus is silent | NEEDS-NORM; HOLD | [needs-norm.json](verdicts/needs-norm.json) |
+| Missing sources | Required scope for a new integration cannot be established | CONTEXT; HOLD if no other BLOCK | [context.json](verdicts/context.json) |
+| Interpretive ambiguity | An Everyday link only opens Operator without changing roles; its boundary is disputed | C-09 citation, NEEDS-RULING; HOLD | [needs-ruling.json](verdicts/needs-ruling.json) |
+| Model instability | Unexplained contradictory judgments with unchanged sources, task, and code | INSTABILITY; Master; HOLD | [instability.json](verdicts/instability.json) |
 
-### Açık ihlalin karşı örneği
+### Counterexample to the explicit violation
 
 ```python
-# Önerilen legacy davranış; normu ihlal eden sentetik örnek.
+# Proposed legacy behavior: a synthetic norm-violating example.
 role = server_session.role or request.json.get("role")
 ```
 
-Sunucu rolü boş ve istemci `role=admin` gönderiyorsa istemci verisi authority kararına girer. Yorum satırına “migration için güvenli” yazılması bu davranışı değiştirmez. Mevcut testler yakalıyorsa mekanik kontrolde durur; yakalamıyorsa doğrulanmış karşı örnek kalıcı teste dönüştürülür.
+If the server role is absent and the client supplies `role=admin`, client data enters the authority decision. Adding a comment saying “safe for migration” does not change that behavior. If existing tests catch it, mechanical checks stop it. Otherwise, convert the verified counterexample into a persistent test.
 
-### Aynı Koruyucu ile gerekçeli düzeltme
+### Reasoned correction with the same Guardian
 
-Koruyucu ilk bakışta bir düğmeyi Everyday'den rol değiştirme olarak yorumlayıp C-12 itirazı kaydeder. Lead, kod yolunun yalnız Operator'a yönlendirdiğini gösterir. Koruyucu eylem izini doğrular; yönetim işleminin Everyday'de olmadığını kabul edip bu itirazı geri çeker. İlk ve son görüş, incelenen kod yolu ve yanlış okuma kayda girer. C-09'un bağlantı hakkındaki yorumu hâlâ belirsizse NEEDS-RULING açık kalır; bir itirazın kalkması otomatik GO değildir. Bütün zorunlu kapsam tamamlanır ve diğer işler çözülürse GO verilebilir.
+The Guardian initially reads a button as changing roles from Everyday and records a C-12 objection. The Lead shows that the code path only navigates to Operator. The Guardian verifies the action trace, recognizes that administration is not happening in Everyday, and withdraws this objection. Record both views, the code path examined, and the misreading. If interpretation of the link under C-09 remains unclear, NEEDS-RULING remains open; removing one objection does not automatically yield GO. GO is possible when all required scope is complete and other open work is resolved.
 
-“Yetiştirmemiz gerekiyor” açıklaması aynı işlevi görmez. Gerçek C-04 ihlali devam ediyorsa NO-GO sürer. Lead ısrar ederse konu Master'a gider; norm değişikliği ayrı kabul edilir ve kod yeni norm sürümüne karşı yeniden incelenir.
+“We need to ship” does not serve the same function. If the actual C-04 violation remains, NO-GO remains. If the Lead insists, the Master decides; a norm change is separately accepted and the code is reviewed against the new norm revision.
 
-### Kendini sınamak
+### Check your reasoning
 
-Mevcut path kuralına uyan yeni bir dosyayı otomatik eşleşmemiş sayma. Mevcut dosyada başka domain'i etkileyen değişikliği de sırf path eşleşti diye kapsamı tam sayma. Yeni kuralı PR head'den okuyarak o PR'ı geçirme. Kaynağı eksik olduğu için bulunamayan normu NEEDS-NORM olarak etiketleme.
+Do not automatically mark a new file unmatched if an existing path rule covers it. Do not assume scope is complete merely because a path matches when an existing file's change affects another domain. Do not pass a PR using its own proposed rules from head. Do not label a norm unavailable because sources are missing as NEEDS-NORM.
 
-Kayıt biçimi kontrolü için depo kökünden:
+From the repository root, check record format with:
 
 ```bash
 python3 skills/cdd-guardian/scripts/check_verdict.py examples/coordination/verdicts/block.json
 python3 -m unittest discover -s tests -v
 ```
 
-Bu kontroller script ve kayıt sözleşmesini sınar; CDD'nin insan incelemesinden iyi olduğunu veya bir modelin vakaları doğru çözdüğünü göstermez.
+These checks test scripts and the record contract. They do not establish that CDD outperforms human review or that a model resolves the cases correctly.

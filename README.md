@@ -2,36 +2,36 @@
 
 > As code gets cheaper, the real problem stops being writing code; it becomes keeping the system the same thing across thousands of small changes.
 
-CDD, ajanlarla geliştirilen bir ürünün kimliğini küçük değişiklikler boyunca korumaya yönelik bir yönetişim önerisidir. Lead uygular, Koruyucu canon'a göre değerlendirir, Müfettiş süreci raporlar; normu insan Master koyar. Aynı Koruyucu gerekçeli diyaloğu sürdürür; çözülemeyen itirazda Lead ısrar ederse Master'a gidilir.
+CDD is a governance proposal for preserving a product's identity across small changes in agentic development. The Lead implements, the Guardian evaluates against the Canon, and the Inspector reports on the process; the human Master establishes norms. The same Guardian continues reasoned dialogue. If an objection remains unresolved and the Lead insists, the Master decides.
 
-**Güncel sürüm: v0.3 — Türkçe.** Yöntemin faydası henüz doğrulanmış bir sonuç olarak sunulmaz.
+**Current version: v0.3.** The method's benefits remain a hypothesis to test.
 
-| İhtiyaç | Başlangıç |
+| What you need | Start here |
 |---|---|
-| Yöntemi ve akışları anlamak | [Türkçe metin, altı Mermaid diyagramıyla](canon-driven-development.md) |
-| Tarayıcıda diyagramlı okumak | [Tek dosyalık HTML](docs/cdd-v0.3.tr.html) — indirip tarayıcıda aç |
-| Bir projede Faz 0 başlatmak | [Kurulum rehberi](docs/getting-started.tr.md) |
-| Skill paketleri | [cdd-init](skills/cdd-init/SKILL.md), [cdd-guardian](skills/cdd-guardian/SKILL.md) |
-| İlk gate örneklerini görmek | [Koordinasyon örneği](examples/coordination/README.md) |
-| v0.2 → v0.3 değişiklikleri | [Değişiklik özeti](docs/changes-v0.3.tr.md) |
-| Eski İngilizce metin | [v0.1 English](canon-driven-development.en.md) — v0.3 ile eşdeğer değildir |
+| Understand the method and workflows | [Full specification with six Mermaid diagrams](cdd.md) |
+| Read the illustrated browser edition | [Single-file HTML](docs/cdd-v0.3.html) — download and open in a browser |
+| Start Phase 0 in a project | [Setup guide](docs/getting-started.md) |
+| Portable skill packages | [cdd-init](skills/cdd-init/SKILL.md), [cdd-guardian](skills/cdd-guardian/SKILL.md) |
+| Explore the first gate examples | [Coordination example](examples/coordination/README.md) |
+| Review v0.2 → v0.3 changes | [Change summary](docs/changes-v0.3.md) |
+| Read the Turkish specification | [Türkçe — cdd.tr.md](cdd.tr.md) |
 
-## Hızlı başlangıç
+## Quick start
 
-Python 3.10+ yeterlidir; başlangıç araçlarının dış bağımlılığı yoktur.
+Python 3.10+ is sufficient; the starter tools have no external dependencies.
 
 ```bash
-python3 skills/cdd-init/scripts/init_cdd.py --target ../benim-urun --dry-run
-python3 skills/cdd-init/scripts/init_cdd.py --target ../benim-urun
+python3 skills/cdd-init/scripts/init_cdd.py --target ../my-product --dry-run
+python3 skills/cdd-init/scripts/init_cdd.py --target ../my-product
 ```
 
-Script DRAFT dosyalar üretir; mevcut dosyaları ezmez. İnsan norm kabulü, ayrı Koruyucu rolü ve platformdaki izin/CI düzeni ayrıca kurulmalıdır. Skill paketleri hedef ajana ayrıca yüklenir; bu repo onları kişisel skill dizinine otomatik kurmaz.
+The script creates DRAFT files and never overwrites existing content. Human norm acceptance, a separate Guardian role, and platform permissions/CI must be set up separately. Install skill packages in the target agent separately; this repository does not automatically install them into a personal skill directory.
 
-## Kontrol
+## Checks
 
 ```bash
 python3 -m unittest discover -s tests -v
 python3 skills/cdd-guardian/scripts/check_verdict.py examples/coordination/verdicts/block.json
 ```
 
-İkinci komut kayıt sözleşmesini kontrol eder; örnekte CANON_GATE=NO-GO'dur. Başarılı script çıkışını merge onayı diye kullanma. Sentetik örnekler model performansı veya gerçek ürün sonuçları değildir.
+The second command checks the record contract; the example has CANON_GATE=NO-GO. A successful script exit is not merge approval. Synthetic examples are neither model-performance measurements nor real product results.

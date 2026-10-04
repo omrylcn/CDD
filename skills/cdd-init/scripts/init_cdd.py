@@ -11,9 +11,9 @@ def initialize(target, dry_run=False, skip_agents=False):
     # Refuse symlink traversal before computing or creating output paths.
     for part in (target, *target.parents):
         if part.is_symlink():
-            raise ValueError(f"Hedef yol symlink içeriyor: {part}")
+            raise ValueError(f"Target path contains a symlink: {part}")
     if target.exists() and not target.is_dir():
-        raise ValueError("Hedef bir dizin olmalı")
+        raise ValueError("Target must be a directory")
     plan, unchanged, conflicts = [], [], []
     for src in sorted(TEMPLATES.rglob("*")):
         if not src.is_file():
@@ -34,7 +34,7 @@ def initialize(target, dry_run=False, skip_agents=False):
         else:
             plan.append((src, dst))
     if conflicts:
-        raise ValueError("Hiçbir dosya yazılmadı; çakışan yollar: " + ", ".join(conflicts))
+        raise ValueError("No files written; conflicting paths: " + ", ".join(conflicts))
     created = []
     if not dry_run:
         try:
@@ -55,16 +55,16 @@ def main():
     parser.add_argument("--target", required=True)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--skip-agents", action="store_true",
-                        help="Mevcut AGENTS.md için otomatik yazımı atla; elle uzlaştırma gerekir")
+                        help="Skip writing AGENTS.md; manual reconciliation is required")
     args = parser.parse_args()
     try:
         planned, unchanged = initialize(args.target, args.dry_run, args.skip_agents)
     except (OSError, ValueError) as exc:
         print(f"CDD init: {exc}", file=sys.stderr)
         return 1
-    print("Planlanan:" if args.dry_run else "Oluşturulan:", ", ".join(planned) or "yok")
-    print("Aynı kalan:", ", ".join(unchanged) or "yok")
-    print("Canon DRAFT'tır; bu işlem norm kabulü, çalışan ajan veya CI gate kurmaz.")
+    print("Planned:" if args.dry_run else "Created:", ", ".join(planned) or "none")
+    print("Unchanged:", ", ".join(unchanged) or "none")
+    print("Canon remains DRAFT; this does not accept norms, run agents, or configure a CI gate.")
     return 0
 
 if __name__ == "__main__":

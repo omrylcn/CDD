@@ -1,22 +1,22 @@
-# CDD karar ve takip kaydı
+# CDD decision and follow-up log
 
-Bu dosya Faz 0'da karar izi, Ledger takibi ve Master kuyruğunu tek yerde tutar. Yeni bir normatif kaynak değildir. Kayıtları büyüdüğünde ayrı dosyalara bölünebilir.
+In Phase 0, this file holds decision history, Ledger follow-up, and the Master's queue together. It is not a new normative source. Split it into separate files as records grow.
 
-## Karar geçmişi
+## Decision history
 
-| ID | Tür | Kod / kaynak sürümü | İlk görüş | Tartışılan bilgi ve düzeltilen hata | Son görüş / dayanak | Yetkili karar referansı |
+| ID | Type | Code / source revision | Initial view | Information discussed and error corrected | Final view / basis | Authorized decision reference |
 |---|---|---|---|---|---|---|
 
-## Master'ın açık işleri
+## Master's open work
 
-| ID | Sınıf | Konu / kaynak kayıt | Sorumlu | Açılış | Gözden geçirme | Durum / kapanış |
+| ID | Class | Topic / source record | Owner | Opened | Review date | Status / closure |
 |---|---|---|---|---|---|---|
 
-Sınıflar: karar bekleyen, dönemsel incelenecek. Kayıt satırları otomatik iş değildir. Okunmamış işi incelendi diye kapatma; birleşen işlerin bağlantısını koru.
+Classes: awaiting decision, scheduled for review. Record rows are not automatically tasks. Do not close unread work as reviewed; retain links when combining items.
 
 ## Ledger
 
-| ID | Madde / kapsam | Somut gözlem | Takip sahibi | Gözden geçirme | Durum / sonuç |
+| ID | Clause / scope | Concrete observation | Follow-up owner | Review date | Status / outcome |
 |---|---|---|---|---|---|
 
-ADVISORY sayısı otomatik HOLD/BLOCK üretmez. Gerçek ihlalin süreli kabulü yalnız Master'ın gerekçeli, süreli ve denetlenebilir acil istisnasıyla mümkündür; normatif emsal olmaz.
+ADVISORY counts never automatically produce HOLD/BLOCK. Temporarily accepting a real violation requires the Master's reasoned, time-limited, auditable emergency exception; it creates no normative precedent.

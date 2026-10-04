@@ -1,19 +1,19 @@
-# Başlangıç kararları
+# Bootstrap decisions
 
-## Gerekli bilgi
+## Required information
 
-- Ürün hangi işi, kimin için yapıyor? Hangi ürün olmak istemiyor?
-- Açık bir trade-off veya korunacak sınır var mı?
-- Norm kabul edecek insan kim? Kararı ve kabul edilen içerik sürümü nerede doğrulanacak?
-- Kod üreten Lead ile değerlendiren Koruyucu nasıl ayrılacak?
-- Kabul edilmiş kaynaklar hangi ref'ten okunacak? Yeni kurulumda henüz böyle bir ref yoksa bunu açık yazın.
+- What does the product do, and for whom? What does it explicitly avoid becoming?
+- Is there a clear trade-off or boundary to preserve?
+- Who is the human accepting norms? Where can the decision and accepted content revision be verified?
+- How will the code-producing Lead and evaluating Guardian be separated?
+- Which ref supplies accepted sources? State explicitly if a new setup has no such ref yet.
 
-## İlk kabul
+## First acceptance
 
-CANON başlangıçta DRAFT'tır. İnsan taslağı kabul ettiğinde norm metninin sürümünü, kararın kaynağını ve hangi kimliğin yetkili olduğunu ayrıca kaydedin. Metne yalnız bir kullanıcı adı yazmak kimlik doğrulama değildir. Ajanın insanın kabul yetkisini onun adına kullanamadığını ortamın izinleriyle sağlayın. Tek kişinin aynı platform kimliğiyle hem PR açtığı hem onay verdiği akışı otomatik bağımsız onay gibi sunmayın.
+The Canon starts as DRAFT. When the human accepts it, separately record the norm text's revision, the decision source, and the authorized identity. Writing a username in a file is not authentication. Use environment permissions to prevent the agent from exercising the human's acceptance power on their behalf. Do not present a single platform identity both opening and approving a PR as automatically independent approval.
 
-Sonraki gate kaynaklarını kabul edilmiş base ref'ten okuyun; PR head'deki CANON, GUARDIAN, ruling veya router değişikliği aynı incelemede kendiliğinden yürürlüğe girmez. Başlangıçta corpus küçükse tüm kabul edilmiş kaynakları yükleyin; domain router eklemek zorunlu değildir.
+Load later gate sources from the accepted base ref. CANON, GUARDIAN, ruling, or router changes at PR head do not automatically take effect in the same review. If the initial corpus is small, load all accepted sources; a domain router is optional.
 
-## Mevcut proje
+## Existing projects
 
-Mevcut AGENTS veya CANON dosyasını değiştirmeden önce okuyun. Init script'inin çakışma raporunu, silme veya üzerine yazma izni saymayın. Var olan normların içeriğini kaybetmeden önerilen ekleri bir diff olarak hazırlayın. Kurulum talebi, yeni ürün ilkelerinin kabulü değildir.
+Read existing AGENTS or CANON files before changing them. An initializer conflict report is not permission to delete or overwrite. Prepare proposed additions as a diff that preserves existing norms. A setup request does not itself accept new product principles.
