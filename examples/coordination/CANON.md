@@ -1,15 +1,15 @@
-# Koordinasyon ürünü — öğretim Canon'u
+# Coordination product — teaching Canon
 
-Durum: **ILLUSTRATIVE — gerçek ürün onayı değildir**
+Status: **ILLUSTRATIVE — not actual product approval**
 
-Bu dosya örnek vakaların varsaydığı sabit norm kümesidir. Gerçek hedef üründe kullanım için DRAFT'a alınır ve insan ürün sahibi tarafından ayrıca kabul edilir.
+This is the fixed norm set assumed by the example cases. For use in an actual target product, return it to DRAFT and obtain separate acceptance from the human product owner.
 
-- C-04 — Authority isimden veya client payload'dan türetilemez; yalnızca server-derived'dır.
-- C-09 — Everyday, On-Demand ve Operator birbirinden farklı interaction surface'leridir; tek generic dashboard altında birleştirilemez.
-- C-12 — Üye rolü değiştirme işlemi Operator sorumluluğundadır; Everyday'den yapılamaz.
+- C-04 — Authority cannot be derived from a name or client payload; it is exclusively server-derived.
+- C-09 — Everyday, On-Demand, and Operator are distinct interaction surfaces; they cannot be combined into one generic dashboard.
+- C-12 — Changing member roles is Operator's responsibility; it cannot be performed from Everyday.
 
-## Örneğin yetki varsayımı
+## Authority assumed by the example
 
-İnsan Master normu koyar ve değiştirir. Lead uygular. Ayrı Koruyucu rolü canon itirazını değerlendirir; CONSULT, Kurul ve gate boyunca ilgili geçmişi taşır. Mevcut normun yorumu Lead + Koruyucu Kurul'unda yapılır; yeni norm Master'a gider. Bu açıklama gerçek bir insan kabul kaydı değildir.
+The human Master establishes and changes norms. The Lead implements. A separate Guardian role evaluates canon objections, preserving relevant history across CONSULT, Council, and gate. The Lead + Guardian Council interprets existing norms; new norms go to the Master. This description is not an actual human acceptance record.
 
-Örnek küçük olduğu için tüm bu dosya yüklenir. Aşağıdaki vakaların metinleri ve beklenen çıktıları normatif değildir. C-12 burada örneği sade tutmak için canon'dadır; yöntem belgesindeki S-SURF-03 ile aynı davranış sınırını gösterir.
+The example is small, so load this entire file. Case descriptions and expected outputs are non-normative. C-12 is in the Canon here to keep the example simple; it expresses the same behavior boundary as S-SURF-03 in the method specification.

@@ -31,8 +31,8 @@
       "severity": "BLOCK",
       "clause": "C-04",
       "scope": "legacy fallback",
-      "cite": "C-04: authority yalnız server-derived",
-      "counterexample": "Sunucu rolü yok + istemciden role=admin → istemci rolü kullanılır"
+      "cite": "C-04: Authority cannot be derived from a name or client payload; it is exclusively server-derived.",
+      "counterexample": "Server role absent + client role=admin → client role is used"
     }
   ],
   "routing": [],

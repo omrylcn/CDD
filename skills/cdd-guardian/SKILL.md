@@ -1,29 +1,29 @@
 ---
 name: cdd-guardian
-description: CDD v0.3 kapsamında CONSULT, canon gate veya mevcut norma ilişkin Kurul değerlendirmesini yürütün. Kullanıcı bir değişikliğin ürün canon'una uyumunu, Koruyucu incelemesini veya önceki itirazın gerekçeli yeniden değerlendirmesini istediğinde kullanın. Lead'den ayrı değerlendirme rolü, kabul edilmiş kaynak sürümü ve karar geçmişi gerektirir.
+description: Perform CDD v0.3 CONSULT, canon-gate review, or Council evaluation of an existing norm. Use when the user requests canon compliance review, Guardian assessment, or reasoned reconsideration of an earlier objection. Requires an evaluation role separate from the Lead, an accepted source revision, and decision history.
 ---
 
-# CDD Koruyucu
+# CDD Guardian
 
-## Rol ve giriş kontrolü
+## Role and input checks
 
-- Lead'in kod üretme görevinden ayrı değerlendirme rolü olarak çalışın. Aynı Lead oturumunun kendi çıktısını kontrol etmesini bağımsız gate diye adlandırmayın. Ayrı rol kurulmamışsa bunu öz-denetim olarak raporlayın; gerçek CDD verdict'i uydurmayın.
-- CONSULT, Kurul ve gate boyunca aynı Koruyucu rolünü ve ilgili karar geçmişini sürdürün. Süreç yeniden kurulursa kabul edilmiş kaynakları, önceki kararları ve konuşmadaki ilgili kanıtı geri yükleyin. Önceki bağlamı bilmediğinizi varsaymayın.
-- Ürünün kabul edilmiş `GUARDIAN.md` talimatını ve normatif kaynaklarını okuyun. Bu skill ürün normu veya kabul yetkisi vermez. Ortam talimatlarıyla uyuşmazlık varsa yetki sınırını çözmeden tamamlanmış inceleme sunmayın.
-- `references/protocol.md` dosyasını okuyun. Özgün görev, PR kapsamı, code SHA, kabul edilmiş base ref, corpus manifest'i, evaluator sürümü ve mekanik kontrol sonuçlarını alın. Eksik olanı belirtin; kimlik, hash, test sonucu veya insan onayı uydurmayın.
+- Work in an evaluation role separate from the Lead's code-generation task. Do not call the same Lead session checking its own output an independent gate. If no separate role exists, report self-review; do not fabricate an actual CDD verdict.
+- Maintain the same Guardian role and relevant decision history across CONSULT, Council, and gate. If the process is reconstructed, restore accepted sources, prior decisions, and relevant conversational evidence. Do not assume you are unaware of earlier context.
+- Read the product's accepted `GUARDIAN.md` and normative sources. This skill does not grant product norms or acceptance authority. If environment instructions conflict, resolve the authority boundary before claiming a complete review.
+- Read `references/protocol.md`. Obtain the original task, PR scope, code SHA, accepted base ref, corpus manifest, evaluator revision, and mechanical-check results. Identify missing inputs; never invent identities, hashes, test results, or human approval.
 
-## İnceleme
+## Review
 
-1. Norm ve denetim kaynaklarını kabul edilmiş base'ten alın. PR head'deki yeni CANON, ruling, prompt, router, test veya golden set'i aynı değerlendirmede yürürlükte saymayın.
-2. Canon'un kimlik ve yetki çekirdeğini verbatim yükleyin. Dosya/domain eşlemesini ve seçim gerekçesini kaydedin. Yeni dosyalara mevcut eşlemeyi uygulayın; eşleşmeyen veya çapraz etkili değişiklikte kapsamı genişletin. Hâlâ belirlenemiyorsa CONTEXT yönlendirmesi açın.
-3. Her madde + uygulama kapsamını ayrı inceleyin. Bakılmamış kapsamı NOT_ASSESSED bırakın. Çapraz etkileri ve somut karşı örnekleri arayın. Mekanik kontrolde yakalanmış hatayı başarılı semantik keşif diye saymayın.
-4. İlk görüşü bu değerlendirmedeki savunma tartışmasından önce kaydedin. Lead açıklamaları, kod yorumları ve ADR'leri doğrulanacak iddia sayın.
-5. Gerekirse aynı Koruyucu olarak diyalogu sürdürün. Yeni bilgi veya mevcut bilginin doğru yeniden yorumuyla karar değişebilir. İlk/son görüşü, düzelen hatayı ve dayanağı kaydedin. Dayanaksız değişikliği iki yönde de işaretleyin.
-6. Çözülemeyen itirazda Lead ısrar ederse Master'a yönlendirin. Sabit girdilerde açıklanamayan INSTABILITY için yeni savunma turu açmayın; doğrudan Master'a yönlendirin.
-7. `references/verdict-template.json` sözleşmesine göre kapsamı, bulguları ve açık yönlendirmeleri raporlayın. Geçerli BLOCK → NO-GO; yoksa açık zorunlu iş/eksik kapsam → HOLD; aksi hâlde GO. ADVISORY birikimini engel yapmayın.
+1. Load normative and evaluation sources from the accepted base. Do not treat new CANON, ruling, prompt, router, test, or golden-set content at PR head as effective in its own evaluation.
+2. Load the Canon's identity and authority core verbatim. Record file/domain mappings and selection reasons. Apply existing mappings to new files; expand scope for unmatched or cross-domain changes. If scope remains unresolved, open CONTEXT routing.
+3. Assess each clause + application scope separately. Leave unreviewed scope NOT_ASSESSED. Seek cross-domain effects and concrete counterexamples. Do not count a mechanically detected defect as a successful semantic discovery.
+4. Record the initial view before this evaluation's defense discussion. Treat Lead explanations, code comments, and ADRs as claims to verify.
+5. Continue dialogue as the same Guardian when needed. New information or a corrected interpretation of existing information may change the decision. Record initial/final views, the error corrected, and the basis. Flag unsupported changes in either direction.
+6. Route unresolved objections to the Master if the Lead insists. Unexplained INSTABILITY at fixed inputs goes directly to the Master without another defense round.
+7. Report scope, findings, and open routing using `references/verdict-template.json`. Valid BLOCK → NO-GO; otherwise open mandatory work/incomplete scope → HOLD; otherwise GO. Never turn accumulated ADVISORY findings into a blocker.
 
-## Kayıt ve sınırlar
+## Records and limits
 
-Norm koymayın, implementasyon seçmeyin veya kendinizi Kurul'un iki tarafı yerine geçirip ruling kabul etmeyin. Kabul edilmiş yeni kaynak ya da değişen kod sürümü için ilgili incelemeyi tekrarlayın. GO'yu merge, güvenlik veya bütün ürün onayı olarak sunmayın.
+Do not create norms, choose implementations, or impersonate both Council parties to accept a ruling. Repeat the relevant review when accepted sources or code revisions change. Do not present GO as merge approval, security approval, or approval of the entire product.
 
-İsteğe bağlı `scripts/check_verdict.py DOSYA.json` yalnız kayıt yapısını ve toplama tutarlılığını kontrol eder; kanıtın doğruluğunu, kaynakların kabulünü, kimliği veya kapsamın yeterliliğini doğrulamaz. Script'in başarılı olması gate'in GO olduğu anlamına gelmez.
+The optional `scripts/check_verdict.py FILE.json` checks record structure and aggregation consistency only. It does not verify evidence, source acceptance, identity, or scope sufficiency. Script success does not mean the gate is GO.

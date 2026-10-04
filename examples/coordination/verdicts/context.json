@@ -17,13 +17,13 @@
       }
     ],
     "unresolved": [
-      "Yeni entegrasyonun authority etkisi"
+      "Authority impact of the new integration"
     ]
   },
   "clauses": [
     {
       "clause": "C-04",
-      "scope": "yeni entegrasyon",
+      "scope": "new integration",
       "status": "NOT_ASSESSED",
       "required": true
     }
@@ -32,8 +32,8 @@
   "routing": [
     {
       "kind": "CONTEXT",
-      "reason": "Gerekli inceleme kapsamı belirlenemedi",
-      "owner": "Koruyucu; çözülmezse insan"
+      "reason": "Required review scope could not be established",
+      "owner": "Guardian; human if unresolved"
     }
   ],
   "canon_gate": "HOLD",

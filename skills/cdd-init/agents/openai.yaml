@@ -1,4 +1,4 @@
 interface:
-  display_name: "CDD Başlangıç"
-  short_description: "Projede CDD Faz 0 dosyalarını güvenle hazırla"
-  default_prompt: "$cdd-init ile bu projede CDD Faz 0 başlangıcını hazırla."
+  display_name: "CDD Initialization"
+  short_description: "Prepare CDD Phase 0 drafts in a project safely"
+  default_prompt: "Use $cdd-init to prepare CDD Phase 0 drafts for this project."

@@ -91,7 +91,7 @@ def main():
         errors=[str(exc)]
     if errors:
         print("\n".join(errors),file=sys.stderr); return 1
-    print("Kayıt sözleşmesi tutarlı. Semantik doğruluk, insan onayı ve gate geçişi doğrulanmadı.")
+    print("Record contract is consistent. Semantic correctness, human approval, and gate passage were not verified.")
     return 0
 
 if __name__=="__main__":

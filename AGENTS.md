@@ -1,13 +1,13 @@
-# CDD deposunda çalışma
+# Working in the CDD repository
 
-Bu depo CDD yöntemini, başlangıç şablonlarını ve örneklerini içerir. Hayali koordinasyon uygulamasının canon maddeleri bu deponun ürün kuralları değildir.
+This repository contains the CDD method, starter templates, and examples. The fictional coordination application's canon clauses are not product rules for this repository.
 
-- Güncel Türkçe kaynak `canon-driven-development.md` (v0.3); İngilizce metin etiketlenmiş v0.1 arşividir. Eşdeğer çeviri olduklarını varsayma.
-- Özgün anlatımı ve bölüm numaralarını koru. Protokol değişince ilgili skill, şablon, örnek ve diyagramı birlikte güncelle.
-- Aynı Koruyucu rolü CONSULT, Kurul ve gate boyunca ilgili karar geçmişini taşır. Lead gerekçesi doğrulanacak iddiadır; norm veya bağımsız onay değildir.
-- `CANON_GATE` ile merge kararını ayır. Geçerli BLOCK → NO-GO; yoksa açık zorunlu iş veya eksik kapsam → HOLD; aksi hâlde GO. ADVISORY birikimi otomatik engel değildir.
-- Örnek onayları gerçek Master onayı gibi üretme. Scaffold DRAFT'tır; gerçek kabul, insan kimliği ve içerik sürümüne bağlı ayrı olaydır.
-- Skill'ler `skills/` altında taşınabilir paketlerdir. Kullanıcının kişisel skill dizinine otomatik kurulum yapma. Hedef proje talimatı `skills/cdd-init/assets/templates/AGENTS.md` içindedir.
-- Başlangıç script'i mevcut dosyaları sessizce ezmemeli; çakışmada yazmadan çıkmalıdır.
-- `python3 -m unittest discover -s tests -v` çalıştır. Belgelerdeki göreli bağlantıları ve Mermaid diyagramlarını değişiklik kapsamına göre kontrol et.
-- Kullanıcı istemedikçe merge veya release yapma. Çalışmayı branch ve incelenebilir PR olarak hazırla.
+- English is the primary project language. `cdd.md` is the current v0.3 specification; `cdd.tr.md` is its Turkish version. Keep both aligned when the protocol changes. README, guides, skills, templates, examples, and tool output stay in English.
+- Preserve the original narrative and section numbering. When changing the protocol, update the relevant skills, templates, examples, and diagrams together.
+- The same Guardian role carries relevant decision history through CONSULT, Council, and gate. Lead reasoning is a claim to verify, not a norm or independent approval.
+- Distinguish `CANON_GATE` from merge approval. Valid BLOCK → NO-GO; otherwise open mandatory work or incomplete scope → HOLD; otherwise GO. Accumulated ADVISORY findings never block automatically.
+- Do not fabricate example approvals as actual Master approval. Scaffolds are DRAFT; real acceptance is a separate event bound to human identity and content revision.
+- Skills under `skills/` are portable packages. Do not install them into the user's personal skill directory automatically. Target-project instructions live in `skills/cdd-init/assets/templates/AGENTS.md`.
+- The initializer must never silently overwrite existing files; conflicts must stop it before any writes.
+- Run `python3 -m unittest discover -s tests -v`. Check relative document links and Mermaid diagrams as relevant to the change.
+- Do not merge or release unless the user requests it. Prepare changes on a branch with a reviewable PR.
