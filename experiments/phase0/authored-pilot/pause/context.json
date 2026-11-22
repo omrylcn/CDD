@@ -1,0 +1,101 @@
+{
+  "context_kind": "example",
+  "evidence": [
+    {
+      "observation": "python3 reader.py archive -> {\"archive_order\": \"newest\", \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": false, \"suggestions_visible\": false}",
+      "ref": "reader/archive",
+      "scope": "archive"
+    },
+    {
+      "observation": "python3 reader.py finish -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": true, \"shared_shelf\": false, \"suggestions_visible\": false}",
+      "ref": "reader/finish",
+      "scope": "finish"
+    },
+    {
+      "observation": "python3 reader.py library -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": false, \"suggestions_visible\": false}",
+      "ref": "reader/library",
+      "scope": "library"
+    },
+    {
+      "observation": "python3 reader.py open -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": false, \"suggestions_visible\": false}",
+      "ref": "reader/open",
+      "scope": "open"
+    },
+    {
+      "observation": "python3 reader.py pause -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": false, \"suggestions_visible\": true}",
+      "ref": "reader/pause",
+      "scope": "pause"
+    },
+    {
+      "observation": "python3 reader.py preview -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": false, \"suggestions_visible\": false}",
+      "ref": "reader/preview",
+      "scope": "preview"
+    },
+    {
+      "observation": "python3 reader.py suggest -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": false, \"suggestions_visible\": true}",
+      "ref": "reader/suggest",
+      "scope": "suggest"
+    }
+  ],
+  "expected_scope": [
+    {
+      "clauses": [
+        "R-01",
+        "R-02",
+        "A-01"
+      ],
+      "scope": "archive"
+    },
+    {
+      "clauses": [
+        "R-01",
+        "R-02"
+      ],
+      "scope": "finish"
+    },
+    {
+      "clauses": [
+        "R-01",
+        "R-02"
+      ],
+      "scope": "library"
+    },
+    {
+      "clauses": [
+        "R-01",
+        "R-02"
+      ],
+      "scope": "open"
+    },
+    {
+      "clauses": [
+        "R-01",
+        "R-02"
+      ],
+      "scope": "pause"
+    },
+    {
+      "clauses": [
+        "R-01",
+        "R-02"
+      ],
+      "scope": "preview"
+    },
+    {
+      "clauses": [
+        "R-01",
+        "R-02"
+      ],
+      "scope": "suggest"
+    }
+  ],
+  "human_masters": [],
+  "inputs": {
+    "base_sha": "bad6e13573e86c21cde68262a9a7339d66dd3a66",
+    "code_sha": "cb08066c49511cb33b001a2af22da185894eaacc",
+    "corpus_hash": "09e0f70fc8cff3564b338584b3856f5433018a85cc2404e4fc7a9a900713aa81",
+    "evaluator": "CDD Guardian package sha256:427f889d85424e18eda3feb118259e5620dd4ce026f769e57a0947955cb18de3",
+    "task_ref": "477caa4dfde4f00e0f4e57a2bf0baf34ea0ffbb45ccaa52e79a16915f8986f11"
+  },
+  "norm_requests": []
+}

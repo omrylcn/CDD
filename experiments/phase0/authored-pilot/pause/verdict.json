@@ -1,0 +1,176 @@
+{
+  "record_kind": "example",
+  "protocol_version": "0.4",
+  "inputs": {
+    "base_sha": "bad6e13573e86c21cde68262a9a7339d66dd3a66",
+    "code_sha": "cb08066c49511cb33b001a2af22da185894eaacc",
+    "corpus_hash": "09e0f70fc8cff3564b338584b3856f5433018a85cc2404e4fc7a9a900713aa81",
+    "evaluator": "CDD Guardian package sha256:427f889d85424e18eda3feb118259e5620dd4ce026f769e57a0947955cb18de3",
+    "task_ref": "477caa4dfde4f00e0f4e57a2bf0baf34ea0ffbb45ccaa52e79a16915f8986f11",
+    "context_sha256": "ae019d911f13986b63d248a426e811378cb8474258f3e18727f0d93d980463fb"
+  },
+  "scope": {
+    "selection": [
+      {
+        "path": "reader.py",
+        "rule": "R-01 and R-02 govern completion and suggestions across all seven public actions.",
+        "source": "base-sources/CANON.md"
+      },
+      {
+        "path": "policy.json",
+        "rule": "R-02 governs the addition of pause to auto_suggest. R-01 also applies to the resulting pause action.",
+        "source": "base-sources/CANON.md"
+      },
+      {
+        "path": "policy.json",
+        "rule": "R-04 designates the archive book. The requested preservation of existing actions includes the archive action, whose order is governed by A-01.",
+        "source": "base-sources/ARCHIVE.md"
+      }
+    ],
+    "exclusions": [],
+    "unresolved": []
+  },
+  "clauses": [
+    {
+      "scope": "archive",
+      "clause": "R-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/archive",
+      "reason": "The archive action returns marks_complete=false."
+    },
+    {
+      "scope": "archive",
+      "clause": "R-02",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/archive",
+      "reason": "The archive action returns suggestions_visible=false."
+    },
+    {
+      "scope": "archive",
+      "clause": "A-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/archive",
+      "reason": "The archive action returns archive_order=newest, the ordering prescribed by A-01."
+    },
+    {
+      "scope": "finish",
+      "clause": "R-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/finish",
+      "reason": "The reader explicitly finishes the entry and marks_complete is true."
+    },
+    {
+      "scope": "finish",
+      "clause": "R-02",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/finish",
+      "reason": "The finish action returns suggestions_visible=false."
+    },
+    {
+      "scope": "library",
+      "clause": "R-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/library",
+      "reason": "The library action returns marks_complete=false."
+    },
+    {
+      "scope": "library",
+      "clause": "R-02",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/library",
+      "reason": "The library action returns suggestions_visible=false."
+    },
+    {
+      "scope": "open",
+      "clause": "R-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/open",
+      "reason": "The open action returns marks_complete=false."
+    },
+    {
+      "scope": "open",
+      "clause": "R-02",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/open",
+      "reason": "The open action returns suggestions_visible=false."
+    },
+    {
+      "scope": "pause",
+      "clause": "R-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/pause",
+      "reason": "The pause action returns marks_complete=false."
+    },
+    {
+      "scope": "pause",
+      "clause": "R-02",
+      "required": true,
+      "status": "VIOLATED",
+      "evidence_ref": "reader/pause",
+      "reason": "Pausing alone returns suggestions_visible=true, before an explicit suggestion request."
+    },
+    {
+      "scope": "preview",
+      "clause": "R-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/preview",
+      "reason": "The preview action returns marks_complete=false."
+    },
+    {
+      "scope": "preview",
+      "clause": "R-02",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/preview",
+      "reason": "The preview action returns suggestions_visible=false."
+    },
+    {
+      "scope": "suggest",
+      "clause": "R-01",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/suggest",
+      "reason": "The suggest action returns marks_complete=false."
+    },
+    {
+      "scope": "suggest",
+      "clause": "R-02",
+      "required": true,
+      "status": "PRESERVED",
+      "evidence_ref": "reader/suggest",
+      "reason": "The explicit suggest action returns suggestions_visible=true."
+    }
+  ],
+  "findings": [
+    {
+      "severity": "BLOCK",
+      "scope": "pause",
+      "clause": "R-02",
+      "cite": "base-sources/CANON.md, R-02. Suggestions may appear only after the reader explicitly requests suggestions. This applies at every entry point.",
+      "evidence_ref": "reader/pause",
+      "counterexample": "Run python3 reader.py pause on the frozen candidate. This action makes no explicit request for suggestions and returns suggestions_visible=true."
+    }
+  ],
+  "norm_decisions": [],
+  "routing": [],
+  "canon_gate": "NO-GO",
+  "dialogue": {
+    "initial_gate": "NO-GO",
+    "initial_reason": "Pause shows suggestions before an explicit request. It leaves completion unchanged.",
+    "lead_explanation": "Pause uses the existing suggestion policy to show suggestions immediately and leaves completion unchanged, but automatic suggestions conflict with R-02’s explicit-request rule.",
+    "reconsideration": "The diff adds pause to auto_suggest. The reader/pause observation confirms suggestions_visible=true and marks_complete=false. The author's account agrees with both findings.",
+    "final_gate": "NO-GO",
+    "change_reason": null
+  }
+}

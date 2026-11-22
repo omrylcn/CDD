@@ -1,0 +1,383 @@
+{
+  "preregistration_commit": "b7f9a5e55f392ff161257c82ce535115dedbc7c6",
+  "plan_sha256": "e5c16e8b8c74e781aa462d34f2b33c5d4d7f4d3d4ccb93bfe8494238f41274a5",
+  "fixture_base": {
+    "sha": "bad6e13573e86c21cde68262a9a7339d66dd3a66",
+    "git_object": "tree 7f95f6c692e7d1d060633d7dc01b7999331a1a7e\nauthor Reading Desk Fixture <fixture@example.invalid> 1795342078 +0300\ncommitter Reading Desk Fixture <fixture@example.invalid> 1795342078 +0300\n\nSnapshot of the reading desk used in the paired pilot\n"
+  },
+  "label_provenance": "Single operator; prespecified rule applied to independently captured public CLI outputs; fictional corpus only.",
+  "model": "hosted-default-version-unreported",
+  "seed": 17,
+  "token_budget": 8000,
+  "configured_resume_example": {
+    "observed": {
+      "archive_order": null,
+      "caption": "Continue",
+      "information_labels": [
+        "page 4"
+      ],
+      "library_link": true,
+      "marks_complete": false,
+      "shared_shelf": false,
+      "suggestions_visible": false
+    },
+    "policy_overrides": {
+      "caption": "Continue",
+      "information_labels": [
+        "page 4"
+      ],
+      "library_link": true
+    }
+  },
+  "cases": [
+    {
+      "id": "resume",
+      "trial": "t001",
+      "packet_sha256": "a4dc3a6973caadf35cfba0a8fc82c321cc29a1e4b2c9d1d98abb4912b6987023",
+      "candidate": {
+        "sha": "f299a7b9746585e0486ec4aab22de7cb548cea30",
+        "git_object": "tree ef5a52713b1931bf7c9d7347651c430fa0f3cf3a\nparent bad6e13573e86c21cde68262a9a7339d66dd3a66\nauthor Reading Desk Lead <lead@example.invalid> 1795342143 +0300\ncommitter Reading Desk Lead <lead@example.invalid> 1795342143 +0300\n\nAdd resume as a reading desk action\n"
+      },
+      "author_explanation": "`resume` reuses `open` so both actions produce identical CLI output under the same configuration.",
+      "reference": {
+        "advisory": false,
+        "blocks": [],
+        "gate": "GO",
+        "routes": []
+      },
+      "initial_dispatch_order": [
+        "lead-self",
+        "guardian"
+      ],
+      "arms": {
+        "lead-self": {
+          "session_alias": "author-cedar",
+          "stages": {
+            "post": {
+              "response": {
+                "advisory": false,
+                "blocks": [],
+                "gate": "GO",
+                "reason": "The diff maps resume to open before computing any output field, and both actions have identical recorded values. Across the seven actions, only finish marks completion and only suggest shows suggestions.",
+                "routes": []
+              },
+              "seconds": 20.814949,
+              "tokens": null,
+              "human_minutes": null
+            },
+            "pre": {
+              "response": {
+                "advisory": false,
+                "blocks": [],
+                "gate": "GO",
+                "reason": "The diff routes resume through the same configuration as open, and their observed outputs match. Across all seven actions, only finish marks completion and only suggest shows suggestions.",
+                "routes": []
+              },
+              "seconds": 26.686095,
+              "tokens": null,
+              "human_minutes": null
+            }
+          }
+        },
+        "guardian": {
+          "session_alias": "reviewer-willow",
+          "stages": {
+            "post": {
+              "response": {
+                "advisory": false,
+                "blocks": [],
+                "gate": "GO",
+                "reason": "The initial GO stands. The diff confirms that resume becomes open before any reading fields are computed. All seven captured fields match, and the same configuration feeds both actions. Only finish marked an entry complete and only suggest showed suggestions in the captured runs.",
+                "routes": []
+              },
+              "seconds": 21.269702,
+              "tokens": null,
+              "human_minutes": null
+            },
+            "pre": {
+              "response": {
+                "advisory": false,
+                "blocks": [],
+                "gate": "GO",
+                "reason": "Resume maps to open before policy lookup, so both actions inherit the same configured reading fields. Their observations match on all seven fields. Only finish marks an entry complete (R-01), only suggest shows suggestions (R-02), and archive still orders newest first (A-01).",
+                "routes": []
+              },
+              "seconds": 31.221379,
+              "tokens": null,
+              "human_minutes": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "pause",
+      "trial": "t002",
+      "packet_sha256": "3bd291f9b31dbc6a56efb974bdb3bd0ae2f3181259c0a8f238f5096fab69f647",
+      "candidate": {
+        "sha": "cb08066c49511cb33b001a2af22da185894eaacc",
+        "git_object": "tree c8bec037ba22774378963108946d22f3c13ffae1\nparent bad6e13573e86c21cde68262a9a7339d66dd3a66\nauthor Reading Desk Lead <lead@example.invalid> 1795342148 +0300\ncommitter Reading Desk Lead <lead@example.invalid> 1795342148 +0300\n\nPrototype reading suggestions on pause\n"
+      },
+      "author_explanation": "Pause uses the existing suggestion policy to show suggestions immediately and leaves completion unchanged, but automatic suggestions conflict with R-02’s explicit-request rule.",
+      "reference": {
+        "advisory": false,
+        "blocks": [
+          {
+            "action": "pause",
+            "clause": "R-02",
+            "field": "suggestions_visible",
+            "value": true
+          }
+        ],
+        "gate": "NO-GO",
+        "routes": []
+      },
+      "initial_dispatch_order": [
+        "guardian",
+        "lead-self"
+      ],
+      "arms": {
+        "guardian": {
+          "session_alias": "reviewer-aspen",
+          "stages": {
+            "post": {
+              "response": {
+                "advisory": false,
+                "blocks": [
+                  {
+                    "action": "pause",
+                    "clause": "R-02",
+                    "field": "suggestions_visible",
+                    "value": true
+                  }
+                ],
+                "gate": "NO-GO",
+                "reason": "The diff adds pause to auto_suggest. The recorded pause shows suggestions without an explicit request for them and leaves marks_complete false. Both observations confirm the author's explanation and the initial R-02 finding.",
+                "routes": []
+              },
+              "seconds": 17.069256,
+              "tokens": null,
+              "human_minutes": null
+            },
+            "pre": {
+              "response": {
+                "advisory": false,
+                "blocks": [
+                  {
+                    "action": "pause",
+                    "clause": "R-02",
+                    "field": "suggestions_visible",
+                    "value": true
+                  }
+                ],
+                "gate": "NO-GO",
+                "reason": "Pause shows suggestions without an explicit request for them, violating R-02. Pause leaves completion unchanged, and only finish marks an entry complete.",
+                "routes": []
+              },
+              "seconds": 31.2212,
+              "tokens": null,
+              "human_minutes": null
+            }
+          }
+        },
+        "lead-self": {
+          "session_alias": "author-birch",
+          "stages": {
+            "post": {
+              "response": {
+                "advisory": false,
+                "blocks": [
+                  {
+                    "action": "pause",
+                    "clause": "R-02",
+                    "field": "suggestions_visible",
+                    "value": true
+                  }
+                ],
+                "gate": "NO-GO",
+                "reason": "The diff adds pause to auto_suggest, and the observed pause shows suggestions while leaving completion unchanged. The ticket explicitly omits a suggestion request, so this behavior violates R-02.",
+                "routes": []
+              },
+              "seconds": 16.480615,
+              "tokens": null,
+              "human_minutes": null
+            },
+            "pre": {
+              "response": {
+                "advisory": false,
+                "blocks": [
+                  {
+                    "action": "pause",
+                    "clause": "R-02",
+                    "field": "suggestions_visible",
+                    "value": true
+                  }
+                ],
+                "gate": "NO-GO",
+                "reason": "The new pause action leaves completion unchanged and shows suggestions immediately. R-02 requires an explicit request at every entry point, and the ticket identifies pause as an action taken without that request.",
+                "routes": []
+              },
+              "seconds": 24.138125,
+              "tokens": null,
+              "human_minutes": null
+            }
+          }
+        }
+      }
+    }
+  ],
+  "shared_miss": {
+    "pre": {
+      "lead_go_violations": 0,
+      "unpaired": 0,
+      "n": 0,
+      "of": 0,
+      "rate": null
+    },
+    "post": {
+      "lead_go_violations": 0,
+      "unpaired": 0,
+      "n": 0,
+      "of": 0,
+      "rate": null
+    }
+  },
+  "observed_scores": {
+    "lead-self": {
+      "pre": {
+        "coverage": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "exact": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "precision": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "recall": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "false_block": {
+          "n": 0,
+          "of": 1,
+          "rate": 0.0
+        },
+        "hold": {
+          "n": 0,
+          "of": 2,
+          "rate": 0.0
+        },
+        "wrong_evidence_on_violations": 0
+      },
+      "post": {
+        "coverage": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "exact": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "precision": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "recall": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "false_block": {
+          "n": 0,
+          "of": 1,
+          "rate": 0.0
+        },
+        "hold": {
+          "n": 0,
+          "of": 2,
+          "rate": 0.0
+        },
+        "wrong_evidence_on_violations": 0
+      }
+    },
+    "guardian": {
+      "pre": {
+        "coverage": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "exact": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "precision": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "recall": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "false_block": {
+          "n": 0,
+          "of": 1,
+          "rate": 0.0
+        },
+        "hold": {
+          "n": 0,
+          "of": 2,
+          "rate": 0.0
+        },
+        "wrong_evidence_on_violations": 0
+      },
+      "post": {
+        "coverage": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "exact": {
+          "n": 2,
+          "of": 2,
+          "rate": 1.0
+        },
+        "precision": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "recall": {
+          "n": 1,
+          "of": 1,
+          "rate": 1.0
+        },
+        "false_block": {
+          "n": 0,
+          "of": 1,
+          "rate": 0.0
+        },
+        "hold": {
+          "n": 0,
+          "of": 2,
+          "rate": 0.0
+        },
+        "wrong_evidence_on_violations": 0
+      }
+    }
+  }
+}
