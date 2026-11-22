@@ -63,8 +63,10 @@ def validate(record):
                 errors.append("BLOCK requires clause, scope, cite and counterexample"); continue
             key=(f["clause"],f["scope"]); block_keys.add(key)
             if seen.get(key)!="VIOLATED": errors.append("BLOCK must match a VIOLATED clause/scope")
-        if f.get("severity")=="ADVISORY" and not all(f.get(k) for k in ("owner","review_date")):
-            errors.append("ADVISORY requires owner and review_date")
+        if f.get("severity") == "ADVISORY":
+            required = ("clause", "scope", "observation", "owner", "review_date")
+            if not all(isinstance(f.get(k), str) and f[k].strip() for k in required):
+                errors.append("ADVISORY requires clause, scope, observation, owner and review_date")
     for key,status in seen.items():
         if status=="VIOLATED" and key not in block_keys: errors.append("VIOLATED requires matching BLOCK evidence")
     for route in routing:
@@ -77,6 +79,10 @@ def validate(record):
     expected="NO-GO" if block_keys else "HOLD" if routing or scope["unresolved"] or incomplete else "GO"
     if not member(record.get("canon_gate"), GATES) or record.get("canon_gate")!=expected:
         errors.append(f"canon_gate must be {expected} for the recorded fields")
+    if "dialogue" in record:
+        dialogue = record["dialogue"]
+        if not isinstance(dialogue, dict) or dialogue.get("final_gate") != record.get("canon_gate"):
+            errors.append("dialogue.final_gate must match canon_gate")
     if kind=="template" and record.get("canon_gate")!="HOLD": errors.append("template cannot be a completed review")
     return errors
 

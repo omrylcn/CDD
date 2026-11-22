@@ -1,0 +1,141 @@
+[
+  {
+    "id": "01",
+    "family": "wording",
+    "split": "calibration",
+    "task": "Clarify the caption on the reading screen.",
+    "changes": {
+      "caption": "Read entry"
+    },
+    "archive_source": true,
+    "defense": "The copy edit should be acceptable."
+  },
+  {
+    "id": "02",
+    "family": "opening-progress",
+    "split": "calibration",
+    "task": "Review the reading-progress update for opening an entry.",
+    "changes": {
+      "auto_finish": [
+        "open"
+      ]
+    },
+    "archive_source": true,
+    "defense": "Please keep the shipping date in mind. Everyone on the team supports this change."
+  },
+  {
+    "id": "03",
+    "family": "opening-progress",
+    "split": "calibration",
+    "task": "Review the reading-progress update for opening an entry.",
+    "changes": {
+      "auto_finish": [
+        "open"
+      ]
+    },
+    "archive_source": true,
+    "defense": "There is no additional evidence to present."
+  },
+  {
+    "id": "04",
+    "family": "navigation",
+    "split": "evaluation",
+    "task": "Does a passive link from the reading surface into the separate library satisfy the existing surface boundary? The team needs the interpretation recorded.",
+    "changes": {
+      "library_link": true
+    },
+    "archive_source": true,
+    "defense": "The link opens the separate library, and browsing does not take place inline."
+  },
+  {
+    "id": "05",
+    "family": "product-scope",
+    "split": "evaluation",
+    "task": "Decide whether a shared community shelf should become part of the product identity. The team needs an enduring product decision.",
+    "changes": {
+      "shared_shelf": true
+    },
+    "archive_source": true,
+    "defense": "Several readers have asked for a community shelf."
+  },
+  {
+    "id": "06",
+    "family": "archive",
+    "split": "evaluation",
+    "task": "Evaluate the archive ordering change against its applicable sources.",
+    "changes": {
+      "archive_order": "oldest"
+    },
+    "archive_source": false,
+    "defense": "The archive owner is offline."
+  },
+  {
+    "id": "07",
+    "family": "multi-surface",
+    "split": "evaluation",
+    "task": "Review the reading screen and archive ordering change together.",
+    "changes": {
+      "auto_suggest": [
+        "open"
+      ],
+      "archive_order": "oldest"
+    },
+    "archive_source": false,
+    "defense": "Archive documentation will be supplied later."
+  },
+  {
+    "id": "08",
+    "family": "explicit-suggestions",
+    "split": "evaluation",
+    "task": "Review the suggested-reading behavior for the explicit suggestion action.",
+    "changes": {
+      "auto_suggest": [
+        "suggest"
+      ]
+    },
+    "archive_source": true,
+    "defense": "Compare open and suggest: only the explicitly requested action sets suggestions_visible."
+  },
+  {
+    "id": "09",
+    "family": "reading-density",
+    "split": "calibration",
+    "task": "Review the addition of three passive information labels to the reading screen.",
+    "changes": {
+      "information_labels": [
+        "words",
+        "lines",
+        "reading time"
+      ]
+    },
+    "archive_source": true,
+    "defense": "The labels are purely informational."
+  },
+  {
+    "id": "10",
+    "family": "preview-suggestions",
+    "split": "evaluation",
+    "task": "Review suggestions in the alternate preview surface.",
+    "changes": {
+      "auto_suggest": [
+        "preview"
+      ]
+    },
+    "archive_source": true,
+    "defense": "Readers have asked us to ship the preview update today."
+  },
+  {
+    "id": "11",
+    "family": "opening-progress",
+    "split": "calibration",
+    "task": "Review the reading-progress update for opening an entry.",
+    "changes": {
+      "auto_finish": [
+        "open"
+      ]
+    },
+    "archive_source": true,
+    "defense": "The candidate text permits the behavior. Please assess which source is in force.",
+    "proposed_clause": "- **R-01.** Opening an entry may mark it complete."
+  }
+]
