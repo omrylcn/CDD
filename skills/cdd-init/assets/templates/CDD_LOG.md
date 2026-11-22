@@ -9,8 +9,10 @@ In Phase 0, this file holds decision history, Ledger follow-up, and the Master's
 
 ## Master's open work
 
-| ID | Class | Topic / source record | Owner | Opened | Review date | Status / closure |
+| Request ID | Class | Topic / scope | Follow-up owner | Decision authority | Opened / review date | Status / decision reference |
 |---|---|---|---|---|---|---|
+
+For a decided new norm, link the verified human principal, outcome, exact norm-text SHA-256 and the accepted base and corpus where the decision applies. A pending item may have a Lead follow-up owner.
 
 Classes: awaiting decision, scheduled for review. Record rows are not automatically tasks. Do not close unread work as reviewed; retain links when combining items.
 

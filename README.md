@@ -4,12 +4,13 @@
 
 CDD is a governance proposal for preserving a product's identity across small changes in agentic development. The Lead implements, the Guardian evaluates against the Canon, and the Inspector reports on the process; the human Master establishes norms. The same Guardian continues reasoned dialogue. If an objection remains unresolved and the Lead insists, the Master decides.
 
-**Current version: v0.3.** The method's benefits remain a hypothesis to test.
+**v0.4 draft.** The draft binds coverage to observed behavior and separates tracking a norm request from deciding it. The published v0.3 remains available in the [archived browser edition](docs/cdd-v0.3.html).
 
 | What you need | Start here |
 |---|---|
 | Understand the method and workflows | [Full specification with six Mermaid diagrams](cdd.md) |
-| Read the illustrated browser edition | [Single-file HTML](docs/cdd-v0.3.html) — download and open in a browser |
+| Read the archived illustrated v0.3 edition | [Single-file HTML](docs/cdd-v0.3.html) — download and open in a browser |
+| Try the v0.4 decision record | [Rules and migration](skills/cdd-guardian/references/decision-record-v0.4.md) · [Runnable example](experiments/phase0/README.md#exercise-the-v04-decision-record) |
 | Start Phase 0 in a project | [Setup guide](docs/getting-started.md) |
 | Portable skill packages | [cdd-init](skills/cdd-init/SKILL.md), [cdd-guardian](skills/cdd-guardian/SKILL.md), [cdd-inspect](skills/cdd-inspect/SKILL.md) |
 | Run a shadow review or compare evaluators | [Phase 0 experiment and agent profiles](experiments/phase0/README.md) |

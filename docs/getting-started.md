@@ -65,4 +65,6 @@ Exit code zero means **the record is structurally consistent**; this example's g
 
 The [coordination example](../examples/coordination/README.md) covers explicit violations, soft drift, norm gaps, missing sources, and reasoned correction. These are synthetic teaching cases, not real-world results.
 
+For the v0.4 draft, run `python3 experiments/phase0/record_demo.py` from the repository root. It constructs an independent expected scope and a simulated norm decision, drives the reading desk, then checks complete and deliberately inconsistent records. For your own product, use [the v0.4 record contract](../skills/cdd-guardian/references/decision-record-v0.4.md) and obtain the context from the trusted operator.
+
 When adding a real PR gate, bind its output to full code/base/corpus/evaluator revisions. Verify who may produce trusted decisions and who holds human acceptance authority. Agent-written JSON saying GO is not enforcement. A new commit or accepted source change invalidates the old verdict. This starter package does not automatically alter platform protections.

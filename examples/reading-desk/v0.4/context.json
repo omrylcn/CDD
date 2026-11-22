@@ -1,0 +1,60 @@
+{
+  "context_kind": "example",
+  "evidence": [
+    {
+      "observation": "python3 reader.py open -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": false, \"suggestions_visible\": false}",
+      "ref": "reader/open",
+      "scope": "open"
+    },
+    {
+      "observation": "python3 reader.py library -> {\"archive_order\": null, \"caption\": \"Read\", \"information_labels\": [], \"library_link\": false, \"marks_complete\": false, \"shared_shelf\": true, \"suggestions_visible\": false}",
+      "ref": "reader/library",
+      "scope": "library"
+    }
+  ],
+  "expected_scope": [
+    {
+      "clauses": [
+        "R-02"
+      ],
+      "scope": "open"
+    },
+    {
+      "clauses": [
+        "R-06"
+      ],
+      "scope": "library"
+    },
+    {
+      "clauses": [],
+      "exclusion_ref": "example:docs-only",
+      "scope": "release note"
+    }
+  ],
+  "human_masters": [
+    "example:human-master"
+  ],
+  "inputs": {
+    "base_sha": "556c245a65241c5c3b80c273b08bcfebe2a0dcd7",
+    "code_sha": "9faa63885e6bec2f74f5ba3f731dcbd7066655ab",
+    "corpus_hash": "7429d68180ff0041c9018164d04b5fd8852a2bac46e165d06c9a235d67423ded",
+    "evaluator": "example:record-demo-v0.4",
+    "task_ref": "example:shared-shelf"
+  },
+  "norm_requests": [
+    {
+      "decision": {
+        "base_sha": "556c245a65241c5c3b80c273b08bcfebe2a0dcd7",
+        "corpus_hash": "7429d68180ff0041c9018164d04b5fd8852a2bac46e165d06c9a235d67423ded",
+        "decision_ref": "example:simulated-human-event",
+        "norm_revision": "459592b55c7e846571adbc5132d80f0937d2c2931d59041f073b20b1b2381ad5",
+        "outcome": "ACCEPTED",
+        "principal_id": "example:human-master"
+      },
+      "follow_up_owner": "Lead",
+      "norm_revision": "459592b55c7e846571adbc5132d80f0937d2c2931d59041f073b20b1b2381ad5",
+      "request_id": "shelf-policy",
+      "scope": "library"
+    }
+  ]
+}

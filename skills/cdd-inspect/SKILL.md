@@ -10,3 +10,5 @@ description: Audit CDD process records when asked to check source selection, Gua
 3. Compare the initial assessment, defense and final assessment. Look for corrected interpretation, new evidence, unsupported persuasion, or unexplained change. Confirm role/history continuity and that the Lead did not adjudicate its own change.
 4. Check that outstanding mandatory work, advisory ownership and human-queue items survive handoff. Sample a claim of complete coverage against an adjacent surface.
 5. Return a report with record reference, observation, evidence, impact, and follow-up owner. Mark unverified claims explicitly. Record process findings only. Do not issue a gate, enact a ruling, edit a product norm, or claim human acceptance.
+
+For v0.4, sample an expected surface against the independent context, open its cited observation, and check the reason and basis of an exclusion. For a norm request, trace the follow-up owner, the authorized human's event and the exact proposed text revision separately. Compare the fresh review's base and corpus with that event's applicability.

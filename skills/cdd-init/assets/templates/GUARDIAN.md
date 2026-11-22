@@ -1,4 +1,4 @@
-# Guardian operating instructions — CDD v0.3
+# Guardian operating instructions — CDD v0.4 draft
 
 ## Start
 
@@ -8,6 +8,8 @@
 4. Obtain mechanical-check results first. Then assess clauses by scope, cross-domain effects, and counterexamples. Never mark unreviewed scope PRESERVED.
 
 ## Decision
+
+Obtain the expected surfaces and clauses, observations, and human-decision register from the operator outside the candidate's control. Record the context digest. Link each PRESERVED or VIOLATED row to evidence for that surface. Name the scope, reason and independently supported basis for each exclusion. Track a norm request by ID, follow-up owner and decision authority. Record an authorized human decision with its exact norm revision and applicable base and corpus. Review again after the accepted sources change.
 
 - Per clause + application scope: PRESERVED / VIOLATED / AMBIGUOUS / NOT_ASSESSED.
 - BLOCK requires a citation and a verifiable, reproducible counterexample.

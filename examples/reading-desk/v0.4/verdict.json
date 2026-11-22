@@ -1,0 +1,64 @@
+{
+  "canon_gate": "GO",
+  "clauses": [
+    {
+      "clause": "R-02",
+      "evidence_ref": "reader/open",
+      "required": true,
+      "scope": "open",
+      "status": "PRESERVED"
+    },
+    {
+      "clause": "R-06",
+      "evidence_ref": "reader/library",
+      "required": true,
+      "scope": "library",
+      "status": "PRESERVED"
+    }
+  ],
+  "dialogue": {
+    "change_reason": null,
+    "final_gate": "GO",
+    "initial_gate": "GO"
+  },
+  "findings": [],
+  "inputs": {
+    "base_sha": "556c245a65241c5c3b80c273b08bcfebe2a0dcd7",
+    "code_sha": "9faa63885e6bec2f74f5ba3f731dcbd7066655ab",
+    "context_sha256": "67a36eb0b2e5d1c186ea6a6c9cf7d522ed79546f403d5a78effa17dcc48e21c5",
+    "corpus_hash": "7429d68180ff0041c9018164d04b5fd8852a2bac46e165d06c9a235d67423ded",
+    "evaluator": "example:record-demo-v0.4",
+    "task_ref": "example:shared-shelf"
+  },
+  "norm_decisions": [
+    {
+      "base_sha": "556c245a65241c5c3b80c273b08bcfebe2a0dcd7",
+      "corpus_hash": "7429d68180ff0041c9018164d04b5fd8852a2bac46e165d06c9a235d67423ded",
+      "decision_ref": "example:simulated-human-event",
+      "norm_revision": "459592b55c7e846571adbc5132d80f0937d2c2931d59041f073b20b1b2381ad5",
+      "outcome": "ACCEPTED",
+      "principal_id": "example:human-master",
+      "request_id": "shelf-policy"
+    }
+  ],
+  "protocol_version": "0.4",
+  "record_kind": "example",
+  "routing": [],
+  "scope": {
+    "exclusions": [
+      {
+        "basis_ref": "example:docs-only",
+        "reason": "This change to the note edits release copy only.",
+        "scope": "release note"
+      }
+    ],
+    "selection": [
+      {
+        "path": "policy.json",
+        "rule": "load-full-example",
+        "source": "CANON.md"
+      }
+    ],
+    "unresolved": []
+  }
+}

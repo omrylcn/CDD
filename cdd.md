@@ -2,7 +2,7 @@
 
 ### A human–agent governance proposal for preserving identity in agentic software development
 
-*v0.3 — revised with scope checks, human workload, and visual workflows*
+*v0.4 draft · evidence of review coverage and human norm decisions*
 
 > As code gets cheaper, the real problem stops being writing code; it becomes keeping the system **the same thing** across thousands of small changes.
 
@@ -494,14 +494,18 @@ The gate's normative corpus and evaluation apparatus load from the authorized, a
 
 ```mermaid
 flowchart TD
-    B["Accepted base"] --> C["Source + scope selection"]
+    B["Accepted base"] --> C["Independent scope and decision context"]
     C --> G["Gate evaluation"]
     P["PR head: code under review"] --> G
-    P -.-> N["Head norm proposal: separate acceptance pending"]
+    P -.-> N["New norm request"]
+    N --> H["Human Master decision on exact norm revision"]
+    H -->|If accepted| B
     G --> O["Verdict bound to revisions"]
 ```
 
 DERIVED clauses and interpretation rulings fall under the Council's delegated authority; new norms and canon amendments belong to the Master. Changes to the evaluation apparatus are also reviewed using the current trusted setup.
+
+**v0.4 decision record.** The follow-up owner takes the next action. A Lead may collect examples or track a new norm request. The open route names its decision authority separately: Master for NEEDS-NORM and INSTABILITY, Council for NEEDS-RULING. CONTEXT names a follow-up owner and carries no norm-making authority. A new question gets a stable request ID. Keep it open until the independently maintained register records the human Master's decision, the exact proposed norm-text digest, and the identity-bound decision reference. The operator verifies the principal and which accepted base and corpus the event applies to. A declined proposal grants no norm. An accepted change to the sources requires a new review against the resulting revision. The original verdict remains a historical record.
 
 The Lead may **propose** changes to these files. Acceptance authority depends on the operation: DERIVED and interpretation rulings remain within the Council's delegated power; new norms and canon amendments go to the Master. Bringing a proposal into force is a separate, verifiable event. When the accepted source revision changes, the old verdict does not carry over: reevaluate the PR against the new revision.
 
@@ -566,12 +570,16 @@ Severity
 flowchart TD
     B{"Any valid BLOCK?"}
     B -->|Yes| N["NO-GO"]
-    B -->|No| Q{"Mandatory work or required scope incomplete?"}
+    B -->|No| Q{"Open work or expected scope still incomplete?"}
     Q -->|Yes| H["HOLD"]
     Q -->|No| G["GO"]
 ```
 
 NO-GO may coexist with other open work; retain it in the record.
+
+**v0.4 coverage record.** Before the verdict, the operator freezes the affected surfaces and expected clauses for this change, using the accepted source map and the actual diff. The Guardian records each required clause on its surface, linking PRESERVED and VIOLATED to an observation captured for that surface. A required assessment that could not run stays NOT_ASSESSED. A whole surface may be excluded with the reviewer's reason and an independently supported exclusion reference. A surface with no applicable clause can carry an open norm question. An empty inventory requires CONTEXT. The Guardian may discover additional scope; register newly required coverage and issue a fresh record when the frozen inputs change. The Inspector can still find a surface the independent inventory missed.
+
+The [v0.4 record contract](skills/cdd-guardian/references/decision-record-v0.4.md) defines how the verdict binds the independent inventory, observations and decision register. An omitted required row or conflicting approval claim makes a record invalid. A well-formed record with unfinished work can represent HOLD or a separate, supported NO-GO. The [reader exercise](experiments/phase0/README.md#exercise-the-v04-decision-record) demonstrates both paths.
 
 Set scope at the start using the change and the domain map, expanding it when cross-domain effects appear. C-04 can be PRESERVED on the operator path and VIOLATED in the legacy fallback; record these scopes separately. Required scope marked NOT_ASSESSED never silently becomes PRESERVED. State excluded areas and the reasons for excluding them; GO is not a compliance certificate for the entire repository.
 
@@ -598,7 +606,7 @@ Accepting a ruling or a new norm resolves the open question; it does not automat
 
 `GO` is not code review or product approval. It means only that no canon objection was found within the reviewed normative scope. Security, testing, and normal code review retain their own gates outside CDD. The Guardian is the authority that raises objections, rather than the authority that approves a feature.
 
-Example — identity and revision values below are placeholders:
+This abbreviated review narrative uses placeholder identities and revisions. The [complete v0.4 example](examples/reading-desk/v0.4/verdict.json) can be checked with its [independent example context](examples/reading-desk/v0.4/context.json).
 
 ```
 CANON REVIEW · PR #412
