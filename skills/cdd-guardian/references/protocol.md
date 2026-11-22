@@ -1,5 +1,7 @@
 # Review protocol
 
+Use the [v0.4 decision record contract](decision-record-v0.4.md) for expected coverage, evidence references, open-route ownership and revision-bound human decisions. Earlier v0.3 records remain historical.
+
 ## Sources
 
 Verify accepted source revisions externally. `git show <base>:CANON.md` displays a revision's contents; it does not prove human acceptance. Normative or evaluation changes at PR head are proposals. Authorized acceptance is a separate event; an old verdict does not carry over to a new source.

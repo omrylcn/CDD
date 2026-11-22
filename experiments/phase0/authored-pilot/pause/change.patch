@@ -1,0 +1,14 @@
+diff --git a/policy.json b/policy.json
+index f2b1485..bc7b43e 100644
+--- a/policy.json
++++ b/policy.json
+@@ -4 +4 @@
+-  "auto_suggest": [],
++  "auto_suggest": ["pause"],
+diff --git a/reader.py b/reader.py
+index 64ed57f..36bedae 100644
+--- a/reader.py
++++ b/reader.py
+@@ -6 +6 @@ from pathlib import Path
+-ACTIONS = ("open", "preview", "finish", "suggest", "library", "archive")
++ACTIONS = ("open", "preview", "pause", "finish", "suggest", "library", "archive")

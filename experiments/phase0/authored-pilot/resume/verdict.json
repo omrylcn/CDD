@@ -1,0 +1,223 @@
+{
+  "record_kind": "example",
+  "protocol_version": "0.4",
+  "inputs": {
+    "base_sha": "bad6e13573e86c21cde68262a9a7339d66dd3a66",
+    "code_sha": "f299a7b9746585e0486ec4aab22de7cb548cea30",
+    "corpus_hash": "09e0f70fc8cff3564b338584b3856f5433018a85cc2404e4fc7a9a900713aa81",
+    "evaluator": "CDD Guardian package sha256:427f889d85424e18eda3feb118259e5620dd4ce026f769e57a0947955cb18de3",
+    "task_ref": "4a5191f26e2342a78f878aa4d34da1aa9607742a69c42bff4d37afc800b629d3",
+    "context_sha256": "85a8f3fb2a20444c906d9362d1301bcb4833820b195ca4345bc327e2330a147c"
+  },
+  "scope": {
+    "selection": [
+      {
+        "path": "reader.py",
+        "rule": "R-01 and R-02 cover completion and suggestions on every public action.",
+        "source": "base-sources/CANON.md"
+      },
+      {
+        "path": "reader.py",
+        "rule": "R-03 and R-05 cover browsing and information density on the open and resume reading surfaces.",
+        "source": "base-sources/CANON.md"
+      },
+      {
+        "path": "reader.py",
+        "rule": "R-04 selects the archive book for the archive action's ordering check.",
+        "source": "base-sources/CANON.md"
+      },
+      {
+        "path": "reader.py",
+        "rule": "A-01 specifies the order on the archive surface.",
+        "source": "base-sources/ARCHIVE.md"
+      }
+    ],
+    "exclusions": [],
+    "unresolved": []
+  },
+  "clauses": [
+    {
+      "clause": "R-01",
+      "scope": "archive",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-01",
+      "evidence_ref": "reader/archive",
+      "assessment": "Visiting the archive leaves marks_complete false."
+    },
+    {
+      "clause": "R-02",
+      "scope": "archive",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-02",
+      "evidence_ref": "reader/archive",
+      "assessment": "Visiting the archive leaves suggestions_visible false."
+    },
+    {
+      "clause": "A-01",
+      "scope": "archive",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/ARCHIVE.md A-01",
+      "evidence_ref": "reader/archive",
+      "assessment": "The archive reports newest ordering."
+    },
+    {
+      "clause": "R-01",
+      "scope": "finish",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-01",
+      "evidence_ref": "reader/finish",
+      "assessment": "The explicit finish action sets marks_complete to true."
+    },
+    {
+      "clause": "R-02",
+      "scope": "finish",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-02",
+      "evidence_ref": "reader/finish",
+      "assessment": "Finishing an entry leaves suggestions_visible false."
+    },
+    {
+      "clause": "R-01",
+      "scope": "library",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-01",
+      "evidence_ref": "reader/library",
+      "assessment": "Browsing the library leaves marks_complete false."
+    },
+    {
+      "clause": "R-02",
+      "scope": "library",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-02",
+      "evidence_ref": "reader/library",
+      "assessment": "Browsing the library leaves suggestions_visible false."
+    },
+    {
+      "clause": "R-01",
+      "scope": "open",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-01",
+      "evidence_ref": "reader/open",
+      "assessment": "Opening an entry leaves marks_complete false."
+    },
+    {
+      "clause": "R-02",
+      "scope": "open",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-02",
+      "evidence_ref": "reader/open",
+      "assessment": "Opening an entry leaves suggestions_visible false."
+    },
+    {
+      "clause": "R-03",
+      "scope": "open",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-03",
+      "evidence_ref": "reader/open",
+      "assessment": "The reading output has library_link and shared_shelf both false. It exposes no library browsing."
+    },
+    {
+      "clause": "R-05",
+      "scope": "open",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-05",
+      "evidence_ref": "reader/open",
+      "assessment": "The reading output has the caption Read and an empty information_labels list."
+    },
+    {
+      "clause": "R-01",
+      "scope": "preview",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-01",
+      "evidence_ref": "reader/preview",
+      "assessment": "Previewing an entry leaves marks_complete false."
+    },
+    {
+      "clause": "R-02",
+      "scope": "preview",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-02",
+      "evidence_ref": "reader/preview",
+      "assessment": "Previewing an entry leaves suggestions_visible false."
+    },
+    {
+      "clause": "R-01",
+      "scope": "resume",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-01",
+      "evidence_ref": "reader/resume",
+      "assessment": "Returning to the unfinished entry leaves marks_complete false."
+    },
+    {
+      "clause": "R-02",
+      "scope": "resume",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-02",
+      "evidence_ref": "reader/resume",
+      "assessment": "Returning to the unfinished entry leaves suggestions_visible false."
+    },
+    {
+      "clause": "R-03",
+      "scope": "resume",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-03",
+      "evidence_ref": "reader/resume",
+      "assessment": "The resumed reading surface has library_link and shared_shelf both false, as on open."
+    },
+    {
+      "clause": "R-05",
+      "scope": "resume",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-05",
+      "evidence_ref": "reader/resume",
+      "assessment": "The resumed reading surface has the same Read caption and empty information_labels list as open."
+    },
+    {
+      "clause": "R-01",
+      "scope": "suggest",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-01",
+      "evidence_ref": "reader/suggest",
+      "assessment": "Requesting suggestions leaves marks_complete false."
+    },
+    {
+      "clause": "R-02",
+      "scope": "suggest",
+      "required": true,
+      "status": "PRESERVED",
+      "cite": "base-sources/CANON.md R-02",
+      "evidence_ref": "reader/suggest",
+      "assessment": "The explicit suggestion request sets suggestions_visible to true."
+    }
+  ],
+  "findings": [],
+  "norm_decisions": [],
+  "routing": [],
+  "canon_gate": "GO",
+  "dialogue": {
+    "initial_gate": "GO",
+    "final_gate": "GO",
+    "initial_view": "The new public action maps to open before policy lookup. All seven captured fields match, and existing actions retain their observed behavior.",
+    "lead_explanation": "The author said that resume reuses open so both produce identical CLI output under the same configuration.",
+    "verification": "In change.diff the assignment action = \"open\" executes before the result is built. The frozen reader/open and reader/resume observations agree on all seven fields. The assignment is conditional on resume, so existing actions follow the same code as before.",
+    "change_reason": "Retained the initial GO after verifying the author's claim against the diff and the two public observations."
+  }
+}

@@ -1,6 +1,6 @@
 ---
 name: cdd-guardian
-description: Perform CDD v0.3 CONSULT, canon-gate review, or Council evaluation of an existing norm. Use when the user requests canon compliance review, Guardian assessment, or reasoned reconsideration of an earlier objection. Requires an evaluation role separate from the Lead, an accepted source revision, and decision history.
+description: Perform CDD CONSULT, canon-gate review, or Council evaluation of an existing norm. Use when the user requests canon compliance review, Guardian assessment, or reasoned reconsideration of an earlier objection. Requires an evaluation role separate from the Lead, an accepted source revision, and decision history.
 ---
 
 # CDD Guardian
@@ -26,4 +26,6 @@ description: Perform CDD v0.3 CONSULT, canon-gate review, or Council evaluation 
 
 Do not create norms, choose implementations, or impersonate both Council parties to accept a ruling. Repeat the relevant review when accepted sources or code revisions change. Do not present GO as merge approval, security approval, or approval of the entire product.
 
-The optional `scripts/check_verdict.py FILE.json` checks record structure and aggregation consistency only. It does not verify evidence, source acceptance, identity, or scope sufficiency. Script success does not mean the gate is GO.
+For a v0.4 review, read [the decision record contract](references/decision-record-v0.4.md). Obtain the operator's context independently of the candidate. Link each completed assessment to a captured observation on its surface. Record the follow-up owner and decision authority separately. Cite human norm decisions exactly as verified for the relevant base and corpus. When a required input is missing, preserve the open work.
+
+Run `scripts/check_verdict.py FILE.json --context OPERATOR.json --require-review` on v0.4 reviews. Historical v0.3 records can still be checked with `scripts/check_verdict.py FILE.json`. Exit zero establishes contract consistency. Inspect the gate and verify identity, provenance, and semantic correctness separately.

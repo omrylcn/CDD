@@ -1,26 +1,31 @@
 {
   "record_kind": "template",
-  "protocol_version": "0.3",
+  "protocol_version": "0.4",
   "inputs": {
     "code_sha": null,
     "base_sha": null,
     "corpus_hash": null,
     "task_ref": null,
-    "evaluator": null
+    "evaluator": null,
+    "context_sha256": null
   },
   "scope": {
     "selection": [],
+    "exclusions": [],
     "unresolved": [
       "Accepted sources and review scope have not yet been established"
     ]
   },
   "clauses": [],
   "findings": [],
+  "norm_decisions": [],
   "routing": [
     {
       "kind": "CONTEXT",
       "reason": "This is a starter template",
-      "owner": "human"
+      "scope": "review inputs",
+      "follow_up_owner": "operator",
+      "decision_authority": null
     }
   ],
   "canon_gate": "HOLD",

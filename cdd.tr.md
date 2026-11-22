@@ -2,7 +2,7 @@
 
 ### Agentic yazılım geliştirmede kimliğin korunması için bir insan–ajan yönetişim önerisi
 
-*v0.3 — kapsam, insan yükü ve görsel akışlarla gözden geçirilmiş öneri*
+*v0.4 taslağı · inceleme kapsamının kanıtı ve insanın verdiği norm kararı*
 
 > Kod ucuzladıkça asıl problem kod yazmak olmaktan çıkar; sistemin binlerce küçük değişiklik boyunca **aynı şey olarak kalması** olur.
 
@@ -502,14 +502,18 @@ Gate'in normatif corpus'u ve denetim aygıtı, korumalı base ref'in yetkili bi�
 
 ```mermaid
 flowchart TD
-    B["Kabul edilmiş base"] --> C["Kaynak + kapsam seçimi"]
+    B["Kabul edilmiş taban"] --> C["Bağımsız kapsam ve karar kaydı"]
     C --> G["Gate değerlendirmesi"]
     P["PR head: incelenen kod"] --> G
-    P -.-> N["Head'deki norm önerisi: ayrı kabul bekler"]
+    P -.-> N["Yeni norm talebi"]
+    N --> H["İnsan Master belirli norm sürümünü karara bağlar"]
+    H -->|Kabul edilirse| B
     G --> O["Sürümlere bağlı verdict"]
 ```
 
 DERIVED ve yorum ruling'i Council'ın devredilmiş yetkisinde, yeni norm ve canon amendment Master'ın yetkisindedir. Denetim aygıtı değişikliği de mevcut güvenilir düzenle incelenir.
+
+**v0.4 karar kaydı.** İşin takipçisi bir sonraki eylemi üstlenir. Lead örnek toplayabilir ve yeni norm talebini takip edebilir. Açık kayıtta karar yetkisi ayrıca gösterilir. NEEDS-NORM ve INSTABILITY için Master, NEEDS-RULING için Council karar verir. CONTEXT kaynağı tamamlayacak takipçiyi gösterir ve norm koyma yetkisi vermez. Yeni soruya kalıcı bir talep kimliği verilir. Bağımsız karar defterinde insan Master’ın kararı, önerilen norm metninin özeti (SHA-256) ve kimliği doğrulanmış karar olayının referansı bulunana kadar talep açık kalır. Operatör kararı veren kişiyi ve olayın hangi kabul edilmiş taban ile kaynak kümesi için geçerli olduğunu doğrular. Reddedilen öneri yürürlüğe girmez. Kabul ile kaynaklar değiştiğinde değişiklik yeni sürüme göre yeniden incelenir. İlk karar geçmiş kaydında korunur.
 
 Lead bunlara değişiklik **teklif edebilir**. Kabul yetkisi işlemin türüne bağlıdır: DERIVED ve yorum ruling'i Council'ın devredilmiş yetkisinde kalır; yeni norm ve canon amendment Master'a gider. Teklifin yürürlüğe alınması ayrı, doğrulanabilir bir olaydır. Kabul edilmiş kaynak sürümü değişirse eski verdict taşınmaz; PR yeni sürüme karşı yeniden değerlendirilir.
 
@@ -574,12 +578,16 @@ Severity
 flowchart TD
     B{"Geçerli BLOCK var mı?"}
     B -->|Evet| N["NO-GO"]
-    B -->|Hayır| Q{"Açık zorunlu iş veya eksik kapsam var mı?"}
+    B -->|Hayır| Q{"Açık iş veya beklenen kapsamda eksik var mı?"}
     Q -->|Evet| H["HOLD"]
     Q -->|Hayır| G["GO"]
 ```
 
 NO-GO ile birlikte başka açık işler de bulunabilir; bunlar kayıtta kalır.
+
+**v0.4 kapsam kaydı.** Operatör, kabul edilmiş kaynak haritasını ve gerçek kod farkını kullanarak karardan önce etkilenen davranışları ve her biri için beklenen maddeleri sabitler. Guardian her zorunlu maddeyi ilgili davranış üzerinde değerlendirir. PRESERVED ve VIOLATED sonuçlarını o davranış için elde edilen bir gözleme bağlar. Yapılamayan zorunlu inceleme NOT_ASSESSED olarak kalır. Bir davranışı bütünüyle kapsam dışında bırakmak için inceleyicinin gerekçesi ve dışarıdan doğrulanabilir bir dayanak gerekir. Uygulanabilir madde bulunmayan davranışta norm sorusu açık kalabilir. Beklenen kapsam listesi boşsa CONTEXT açılır. Guardian yeni etki alanı bulabilir. Zorunlu kapsam genişlerse yeni kapsam kaydedilir ve değişen girdilerle yeni karar üretilir. Bağımsız listede atlanmış bir etkiyi Inspector hâlâ bulabilir.
+
+[v0.4 kayıt sözleşmesi](skills/cdd-guardian/references/decision-record-v0.4.md), kararın bağımsız kapsam listesine, gözlemlere ve karar defterine nasıl bağlandığını tanımlar. Zorunlu bir satır eksikse veya kayıt bağımsız kabul kararıyla çelişiyorsa denetleyici kaydı reddeder. Tamamlanmamış işini açıkça gösteren geçerli bir kayıt, HOLD veya ayrıca kanıtlanmış bir ihlal varsa NO-GO taşıyabilir. [Okuma uygulaması deneyi](experiments/phase0/README.md#exercise-the-v04-decision-record) bu iki durumu çalıştırır.
 
 Kapsam inceleme başında değişiklik ve domain haritasıyla belirlenir, çapraz etki bulunduğunda genişletilir. Aynı maddenin operator path'i PRESERVED, legacy fallback'i VIOLATED olabilir; kapsamları ayrı yazılır. Zorunlu alandaki NOT_ASSESSED, sessizce PRESERVED sayılmaz. Kapsam dışında bırakılan alanlar gerekçesiyle belirtilir; GO bütün repo için uygunluk belgesi değildir.
 
@@ -606,7 +614,7 @@ Ruling veya yeni normun kabulü, açık soruyu çözer; kodun uygunluğunu kendi
 
 `GO` bir code review ya da ürün onayı değildir; yalnız incelenen normatif kapsamda canon itirazı bulunmadığı anlamına gelir. Security, test ve normal code review CDD'nin dışında kendi gate'lerini korur; Guardian feature'ı onaylayan makam değil, itiraz eden makamdır.
 
-Örnek — kimlik alanlarındaki değerler örnek yer tutucudur:
+Aşağıdaki kısa inceleme anlatımında kimlik ve sürüm alanları örnek değerler taşır. [Tam v0.4 örneğini](examples/reading-desk/v0.4/verdict.json) ve ona ait [bağımsız örnek bağlamını](examples/reading-desk/v0.4/context.json) birlikte denetleyebilirsiniz.
 
 ```
 CANON REVIEW · PR #412

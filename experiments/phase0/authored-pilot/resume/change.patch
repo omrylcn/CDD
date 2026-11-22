@@ -1,0 +1,10 @@
+diff --git a/reader.py b/reader.py
+index 64ed57f..145f866 100644
+--- a/reader.py
++++ b/reader.py
+@@ -6 +6 @@ from pathlib import Path
+-ACTIONS = ("open", "preview", "finish", "suggest", "library", "archive")
++ACTIONS = ("open", "resume", "preview", "finish", "suggest", "library", "archive")
+@@ -11,0 +12,2 @@ def observe(policy, action):
++    if action == "resume":
++        action = "open"

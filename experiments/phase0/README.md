@@ -13,6 +13,14 @@ python3 experiments/phase0/lab.py replay-sample
 
 The first command feeds reference observations through the collector. It exercises 11 cases, 9 change families and 22 records without calling a model. The second regenerates the packets and scores eight [archived observations](observed-sample.json) from four actual review conversations on two deliberately selected cases. One case contains both an explicit violation and a missing source. In the other case a suspicious-looking setting preserves the public behavior. Both reviewers matched both reference labels before and after the author replied. The sessions yielded no model-version or usage telemetry. The reference labels were seeded by the case author. This sample demonstrates the workflow. It cannot estimate comparative performance.
 
+## Exercise the v0.4 decision record
+
+A [paired pilot with actual implementing Leads](authored-pilot/README.md) records same-session self-review and independent Guardian review on two new reading-desk changes. It includes the original code revisions, both rounds of decisions, elapsed review times, and full v0.4 example records.
+
+Run `python3 experiments/phase0/record_demo.py` from the repository root. Add `--out /path/to/new/folder` to retain the JSON and source snapshots. The exercise runs the reading desk's actual `open` and `library` actions. A Lead tracks the shared-shelf norm request. The initial result is HOLD. A separate candidate with unsolicited suggestions produces NO-GO while the same norm request remains open. A simulated Master event and a fresh review on the revised corpus produce GO for the compliant candidate. Omitting a required assessment, substituting the tracker for the deciding principal, or reusing the old verdict fails the checker.
+
+Read the resulting [example verdict](../../examples/reading-desk/v0.4/verdict.json) and [its independent context](../../examples/reading-desk/v0.4/context.json) side by side. These records exercise the [v0.4 contract](../../skills/cdd-guardian/references/decision-record-v0.4.md). The compact model observations from the earlier v0.3 pilot keep their original meaning.
+
 ## Run a new comparison
 
 Keep the operator directory outside the candidate's checkout. Set the same model version, reasoning settings, tool access and total additional-review budget for both arms. Capture the actual usage as well. The numeric token budget in the plan is a reporting threshold. Enforce a hard limit in the agent runner if the experiment requires one.

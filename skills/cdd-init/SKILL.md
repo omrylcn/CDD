@@ -14,4 +14,6 @@ description: Prepare CDD Phase 0 in a new or existing project. Use when the user
 7. For the first task, record the accepted base revision, original task, and code revision under review. Use the `cdd-guardian` package in the separate Guardian role. Maintain the same Guardian with relevant history across CONSULT, Council, and gate.
 8. Report created files, open product decisions, and missing integrations. Prepare a first review example; do not imply that semantic correctness or branch protection has been established.
 
+For v0.4, establish who supplies the revision-bound expected scope, captured observations and human-decision register. Record a follow-up owner for each pending question. A norm enters the corpus through a separately verified human Master decision.
+
 The script only creates a file scaffold. It does not run agents, accept norms, approve PRs, or configure CI enforcement.
