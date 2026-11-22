@@ -11,7 +11,8 @@ CDD is a governance proposal for preserving a product's identity across small ch
 | Understand the method and workflows | [Full specification with six Mermaid diagrams](cdd.md) |
 | Read the illustrated browser edition | [Single-file HTML](docs/cdd-v0.3.html) — download and open in a browser |
 | Start Phase 0 in a project | [Setup guide](docs/getting-started.md) |
-| Portable skill packages | [cdd-init](skills/cdd-init/SKILL.md), [cdd-guardian](skills/cdd-guardian/SKILL.md) |
+| Portable skill packages | [cdd-init](skills/cdd-init/SKILL.md), [cdd-guardian](skills/cdd-guardian/SKILL.md), [cdd-inspect](skills/cdd-inspect/SKILL.md) |
+| Run a shadow review or compare evaluators | [Phase 0 experiment and agent profiles](experiments/phase0/README.md) |
 | Explore the first gate examples | [Coordination example](examples/coordination/README.md) |
 | Review v0.2 → v0.3 changes | [Change summary](docs/changes-v0.3.md) |
 | Read the Turkish specification | [Türkçe — cdd.tr.md](cdd.tr.md) |

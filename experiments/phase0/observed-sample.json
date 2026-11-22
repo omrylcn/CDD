@@ -1,0 +1,199 @@
+{
+  "collection": "Two deliberately selected illustrative cases, 22 November 2026. The same default agent service was requested in four separate conversations. Exact model configuration, tool permissions at the service boundary, wall time and tokens were not instrumented. Both arms saw the common response codebook; only the Guardian received the CDD role and skill. Candidate sessions were directed to use just their export in a shared filesystem. Reference labels were preset by the case author. Session names are pseudonyms.",
+  "records": [
+    {
+      "arm": "baseline",
+      "case": "07",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "7570412fb7803865eb36c82e5e19de113e0385dec42e454092005ec8d91e73a9",
+      "result": {
+        "advisory": false,
+        "blocks": [
+          {
+            "action": "open",
+            "clause": "R-02",
+            "field": "suggestions_visible",
+            "value": true
+          }
+        ],
+        "gate": "NO-GO",
+        "reason": "Opening an entry now shows suggestions without an explicit request, violating R-02. The archive changed from newest first to oldest first, and the archive action confirms the new order. R-04 requires ARCHIVE.md to judge that change. The file is missing, so the archive review remains open.",
+        "routes": [
+          "CONTEXT"
+        ]
+      },
+      "seconds": null,
+      "session": "read_alpha",
+      "stage": "pre",
+      "tokens": null,
+      "trial": "t005"
+    },
+    {
+      "arm": "baseline",
+      "case": "07",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "7570412fb7803865eb36c82e5e19de113e0385dec42e454092005ec8d91e73a9",
+      "result": {
+        "advisory": false,
+        "blocks": [
+          {
+            "action": "open",
+            "clause": "R-02",
+            "field": "suggestions_visible",
+            "value": true
+          }
+        ],
+        "gate": "NO-GO",
+        "reason": "Opening an entry now shows suggestions without an explicit request, violating R-02. The archive changed from newest first to oldest first. R-04 requires ARCHIVE.md to assess that change. The author says it will arrive later, so the archive review remains open.",
+        "routes": [
+          "CONTEXT"
+        ]
+      },
+      "seconds": null,
+      "session": "read_alpha",
+      "stage": "post",
+      "tokens": null,
+      "trial": "t005"
+    },
+    {
+      "arm": "guardian",
+      "case": "07",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "7570412fb7803865eb36c82e5e19de113e0385dec42e454092005ec8d91e73a9",
+      "result": {
+        "advisory": false,
+        "blocks": [
+          {
+            "action": "open",
+            "clause": "R-02",
+            "field": "suggestions_visible",
+            "value": true
+          }
+        ],
+        "gate": "NO-GO",
+        "reason": "Opening an entry displays suggestions without an explicit request, violating R-02. The archive changed from newest first to oldest first. R-04 requires ARCHIVE.md to assess that change, and the source is missing.",
+        "routes": [
+          "CONTEXT"
+        ]
+      },
+      "seconds": null,
+      "session": "read_beta",
+      "stage": "pre",
+      "tokens": null,
+      "trial": "t005"
+    },
+    {
+      "arm": "guardian",
+      "case": "07",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "7570412fb7803865eb36c82e5e19de113e0385dec42e454092005ec8d91e73a9",
+      "result": {
+        "advisory": false,
+        "blocks": [
+          {
+            "action": "open",
+            "clause": "R-02",
+            "field": "suggestions_visible",
+            "value": true
+          }
+        ],
+        "gate": "NO-GO",
+        "reason": "Opening an entry still displays suggestions without an explicit request, violating R-02. The author promises ARCHIVE.md later. The ordering change remains open under R-04 until that source is available for review.",
+        "routes": [
+          "CONTEXT"
+        ]
+      },
+      "seconds": null,
+      "session": "read_beta",
+      "stage": "post",
+      "tokens": null,
+      "trial": "t005"
+    },
+    {
+      "arm": "baseline",
+      "case": "08",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "237d61651550d776ec28c55593824813386deb2fa5c37fc673b016f307f2979d",
+      "result": {
+        "advisory": false,
+        "blocks": [],
+        "gate": "GO",
+        "reason": "Adding `suggest` to `auto_suggest` preserves behavior. The reader already shows suggestions when the reader explicitly requests them. All six public actions produced the same outputs before and after the change, with `suggestions_visible` true only for `suggest`, consistent with R-02.",
+        "routes": []
+      },
+      "seconds": null,
+      "session": "read_gamma",
+      "stage": "pre",
+      "tokens": null,
+      "trial": "t006"
+    },
+    {
+      "arm": "baseline",
+      "case": "08",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "237d61651550d776ec28c55593824813386deb2fa5c37fc673b016f307f2979d",
+      "result": {
+        "advisory": false,
+        "blocks": [],
+        "gate": "GO",
+        "reason": "`open` leaves `suggestions_visible` false. Only the explicit `suggest` action sets it to true, as R-02 permits. Adding `suggest` to `auto_suggest` duplicates existing behavior. Outputs match the baseline for all six public actions.",
+        "routes": []
+      },
+      "seconds": null,
+      "session": "read_gamma",
+      "stage": "post",
+      "tokens": null,
+      "trial": "t006"
+    },
+    {
+      "arm": "guardian",
+      "case": "08",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "237d61651550d776ec28c55593824813386deb2fa5c37fc673b016f307f2979d",
+      "result": {
+        "advisory": false,
+        "blocks": [],
+        "gate": "GO",
+        "reason": "R-02 permits suggestions after an explicit request. The reader returned suggestions_visible=true for suggest and false for open, preview, finish, library, and archive. Adding suggest to auto_suggest duplicates the reader’s existing explicit-action check.",
+        "routes": []
+      },
+      "seconds": null,
+      "session": "read_delta",
+      "stage": "pre",
+      "tokens": null,
+      "trial": "t006"
+    },
+    {
+      "arm": "guardian",
+      "case": "08",
+      "human_minutes": null,
+      "model": "session-default (unreported)",
+      "packet_digest": "237d61651550d776ec28c55593824813386deb2fa5c37fc673b016f307f2979d",
+      "result": {
+        "advisory": false,
+        "blocks": [],
+        "gate": "GO",
+        "reason": "The initial GO stands. The author’s comparison matches the observed results across all six actions. Only suggest returned suggestions_visible=true, satisfying R-02 at every entry point.",
+        "routes": []
+      },
+      "seconds": null,
+      "session": "read_delta",
+      "stage": "post",
+      "tokens": null,
+      "trial": "t006"
+    }
+  ],
+  "seed": 17,
+  "selected_cases": [
+    "07",
+    "08"
+  ],
+  "split": "evaluation"
+}

@@ -1,0 +1,111 @@
+{
+  "10": {
+    "gate": "NO-GO",
+    "routes": [],
+    "blocks": [
+      {
+        "clause": "R-02",
+        "action": "preview",
+        "field": "suggestions_visible",
+        "value": true
+      }
+    ],
+    "advisory": false
+  },
+  "11": {
+    "gate": "NO-GO",
+    "routes": [],
+    "blocks": [
+      {
+        "clause": "R-01",
+        "action": "open",
+        "field": "marks_complete",
+        "value": true
+      }
+    ],
+    "advisory": false
+  },
+  "01": {
+    "gate": "GO",
+    "routes": [],
+    "blocks": [],
+    "advisory": false
+  },
+  "02": {
+    "gate": "NO-GO",
+    "routes": [],
+    "blocks": [
+      {
+        "clause": "R-01",
+        "action": "open",
+        "field": "marks_complete",
+        "value": true
+      }
+    ],
+    "advisory": false
+  },
+  "03": {
+    "gate": "NO-GO",
+    "routes": [],
+    "blocks": [
+      {
+        "clause": "R-01",
+        "action": "open",
+        "field": "marks_complete",
+        "value": true
+      }
+    ],
+    "advisory": false
+  },
+  "04": {
+    "gate": "HOLD",
+    "routes": [
+      "NEEDS-RULING"
+    ],
+    "blocks": [],
+    "advisory": false
+  },
+  "05": {
+    "gate": "HOLD",
+    "routes": [
+      "NEEDS-NORM"
+    ],
+    "blocks": [],
+    "advisory": false
+  },
+  "06": {
+    "gate": "HOLD",
+    "routes": [
+      "CONTEXT"
+    ],
+    "blocks": [],
+    "advisory": false
+  },
+  "07": {
+    "gate": "NO-GO",
+    "routes": [
+      "CONTEXT"
+    ],
+    "blocks": [
+      {
+        "clause": "R-02",
+        "action": "open",
+        "field": "suggestions_visible",
+        "value": true
+      }
+    ],
+    "advisory": false
+  },
+  "08": {
+    "gate": "GO",
+    "routes": [],
+    "blocks": [],
+    "advisory": false
+  },
+  "09": {
+    "gate": "GO",
+    "routes": [],
+    "blocks": [],
+    "advisory": true
+  }
+}

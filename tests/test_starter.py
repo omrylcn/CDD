@@ -91,6 +91,18 @@ class VerdictTests(unittest.TestCase):
         r=self.fixture('advisory'); r['findings'] *= 10
         self.assertEqual(CHECK.validate(r), [])
 
+    def test_advisory_requires_traceable_observation(self):
+        for key in ("clause", "scope", "observation", "owner", "review_date"):
+            with self.subTest(key=key):
+                record = self.fixture("advisory")
+                record["findings"][0][key] = " "
+                self.assertTrue(CHECK.validate(record))
+
+    def test_dialogue_cannot_reverse_the_recorded_final_gate(self):
+        record = self.fixture("block")
+        record["dialogue"]["final_gate"] = "GO"
+        self.assertTrue(CHECK.validate(record))
+
     def test_not_assessed_and_context_cannot_silently_pass(self):
         r=self.fixture('context'); r['routing']=[]; r['scope']['unresolved']=[]; r['canon_gate']='GO'
         self.assertTrue(CHECK.validate(r))
